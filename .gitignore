@@ -1,5 +1,6 @@
 node_modules
 
 **/dist
+!demo/数字查找特效/index.html
 
 pnpm-lock.yaml

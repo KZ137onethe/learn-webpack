@@ -1,3 +1,4 @@
 packages:
-  - "[0-9]-*"
+  - "[00-99]-*"
+  - "demo/**"
   - "!node_modules"

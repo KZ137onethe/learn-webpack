@@ -1,10 +1,11 @@
 {
   "name": "learen-webpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "学习 webpack 脚手架工具",
   "main": "index.js",
   "scripts": {
-    "bundle:1": "pnpm -F run @learen-webpack/1 build"
+    "bundle:01": "pnpm -F run @learn-webpack/01 build",
+    "bundle:02": "pnpm -F run @learn-webpacl/02 build"
   },
   "keywords": [],
   "author": "",
