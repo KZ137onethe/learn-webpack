@@ -1,6 +1,11 @@
+# 依赖相关
 node_modules
-
-**/dist
-!demo/数字查找特效/index.html
-
 pnpm-lock.yaml
+
+# 打包测试时，忽略的文件
+**/dist/main.js
+
+# demo中不忽略的文件
+!demo/数字查找特效/dist/index.html
+
+

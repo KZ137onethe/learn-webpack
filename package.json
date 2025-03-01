@@ -1,7 +1,7 @@
 {
   "name": "learen-webpack",
   "version": "1.0.0",
-  "description": "学习 webpack 脚手架工具",
+  "description": "学习 webpack 构建工具",
   "main": "index.js",
   "scripts": {
     "bundle:01": "pnpm -F run @learn-webpack/01 build",
