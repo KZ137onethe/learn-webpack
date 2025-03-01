@@ -1,0 +1,9 @@
+# 前言
+
+这是一个学习webpack构建工具的一个仓库，该仓库不止于怎么使用webpack，会有一个合适的深度去讲解原理和练习demo（[DEMO文档](./README_demo.md)）
+
+仓库采用monorepo架构，不会涉及到TypeScript，且子仓库命名都有严格要求，不同分支代表不同章节。
+
+代码规范按配置文件[`.prettierrc`](./.prettierrc)
+
+命名规范按照`pnpm-workspace.yaml`，可在项目根目录运行不同子仓库的重要命令。
