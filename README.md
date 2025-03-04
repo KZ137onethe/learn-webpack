@@ -142,7 +142,199 @@ webpack // 或者 npx webpack
 
 我们来看一下webpack打包的结果，以便理解的编译后的这部分JavaScript。
 
-TODO：
+目录结构：
+
+
+```
+├─ 03-编译结果分析                 //
+   ├─ dist                       //
+   │  ├─ main.js                 // 打包后的文件
+   └─ src                        //
+      ├─ a.js                    // 入口文件依赖于a.js
+      └─ index.js                // 入口文件
+```
+
+首先需要合并两个模块`./src/a.js`和`./src/index.js`，而每个模块也是一个函数，可以这么定义：
+
+```JavaScript
+// 该对象保存了所有的模块，以及模块对应的代码
+var modules = {
+    "./src/a.js": function(module, exports) {
+        console.log("module a")
+        module.exports = "a"
+    },
+    "./src/index.js": function(module, exports, require) {
+        console.log("index module");
+        // var a = require("./a"); 变成公共路径
+        var a = require("./src/a.js");
+        console.log(a);
+    }
+}
+```
+
+由于打包后的文件，不能有变量名来污染全局变量，实际上上面的对象是以一种参数的形式传递给一个匿名函数，那么匿名函数的逻辑是什么呢？下面我们用run函数来模拟这个匿名函数：
+
+```javascript
+function run(modules) {	
+    // 执行入口模块
+    require("./src/index.js")
+	// 相当于运行一个模块，得到模块导出的结果
+    function require(moduleId) {
+        var func = modules[moduleId] // 拿到modules对象中的moduleId对应的函数
+        var module = {
+            exports: {}
+        }
+        func(module, module.exports, require)
+        // 如果有模块的导出结果，我们会去获取，并返回导出结果
+        var result = module.exports;
+        return result;
+    }
+}
+```
+
+为了防止运行多次，比如：重复运行`require("./src/index.js")`的情况，我们可以定义一个缓存。
+
+```javascript
+function run(modules) {	
+    // 用于缓存模块的导出结果
+    var moduleExports = {};
+    // 执行入口模块，多次执行不会重复输出
+    require("./src/index.js")
+    require("./src/index.js")
+    require("./src/index.js")
+	// 相当于运行一个模块，得到模块导出的结果
+    function require(moduleId) {
+        if(moduleExports[moduleId]){
+            // 检查是否有缓存
+            return moduleExports[moduleId]
+        }
+        
+        var func = modules[moduleId] // 拿到modules对象中的moduleId对应的函数
+        var module = {
+            exports: {}
+        }
+        func(module, module.exports, require)
+        // 如果有模块的导出结果，我们会去获取，并返回导出结果
+        var result = module.exports;
+        // 缓存模块结果
+        moduleExports[moduleId] = result; 
+        return result;
+    }
+    
+}
+```
+
+由于require不能和node.js环境中require声明是一样的，所以将require函数名变更为`__webpack_require__`，于是我们整合一下：
+
+```javascript
+(function (modules) {
+    // 用于缓存模块的导出结果
+    var moduleExports = {};
+    // 执行入口模块
+    __webpack_require__("./src/index.js")
+	// 相当于运行一个模块，得到模块导出的结果
+    function __webpack_require__(moduleId) {
+        if(moduleExports[moduleId]){
+            // 检查是否有缓存
+            return moduleExports[moduleId]
+        }
+        var func = modules[moduleId] // 拿到modules对象中的moduleId对应的函数
+        var module = {
+            exports: {}
+        }
+        func(module, module.exports, __webpack_require__)
+        // 如果有模块的导出结果，我们会去获取，并返回导出结果
+        var result = module.exports;
+        // 缓存模块结果
+        moduleExports[moduleId] = result; 
+        return result;
+    }
+})(
+    {
+        "./src/a.js": function(module, exports) {
+            console.log("module a")
+            module.exports = "a"
+        },
+        "./src/index.js": function(module, exports, __webpack_require__) {
+            console.log("index module");
+            // var a = require("./a"); 变成公共路径
+            var a = __webpack_require__("./src/a.js");
+            console.log(a);
+        }
+    }
+)
+```
+
+现在呢，我们再去看一下webpack在开发模式打包后的结果（同事把注释删除）：
+
+![03_01](./.images/03_01.png)
+
+你会发现除开eval和匿名函数的调用过程外，逻辑是一样的。
+
+虽然用eval和直接指向代码一样，但为什么里面要用eval呢？
+
+这个东西跟浏览器相关，如果打包后的代码报错了，在浏览器中不好调试。
+
+比如说我在`./src/index.js`中，加入一段错误代码`a.abc()`，我们自己模拟的webpack打包文件（不用eval）在浏览器运行：
+
+![03_02](./.images/03_02.png)
+
+而当我们使用eval时，浏览器支持一个这样的情况，当使用eval时，浏览器会单独开一个虚拟机的环境来执行eval中的代码。下面是一个index.html引入JavaScript，JavaScript包含eval的代码，这段eval中的代码有错误，我们看一下编辑器中的JavaScript和浏览器的情况：
+
+![03_03](./.images/03_03.png)
+
+![03_04](./.images/03_04.png)
+
+当我们在eval代码中写上这种注释：`//# sourceURL=xxx.js`时，在浏览器控制台报错产生了一点不同，那就是虚拟机的名称变成了`xxx.js`，下面我们修改了`test-eval.js`，变成`eval("var a = 1;\na.abc();//# sourceURL=./test-eval.js");`，我们看一下浏览器：
+
+![03_05](./.images/03_05.png)
+
+发现上面看的到代码的具体报错位置了，在`.test-eval.js`中。通过上面的例子，就明白了webpack为什么要用eval来执行模块内部的代码。
+
+最终我们整合下最终的代码：
+
+```javascript
+(function (modules) {
+    // 用于缓存模块的导出结果
+    var moduleExports = {};
+    // 执行入口模块
+    __webpack_require__("./src/index.js")
+	// 相当于运行一个模块，得到模块导出的结果
+    function __webpack_require__(moduleId) {
+        if(moduleExports[moduleId]){
+            // 检查是否有缓存
+            return moduleExports[moduleId]
+        }
+        var func = modules[moduleId] // 拿到modules对象中的moduleId对应的函数
+        var module = {
+            exports: {}
+        }
+        func(module, module.exports, __webpack_require__)
+        // 如果有模块的导出结果，我们会去获取，并返回导出结果
+        var result = module.exports;
+        // 缓存模块结果
+        moduleExports[moduleId] = result; 
+        return result;
+    }
+})(
+    {
+        "./src/a.js": function(module, exports) {
+            eval("console.log(\"module a\");\nmodule.exports = \"a\"//# sourceURL=./src/a.js")
+        },
+        "./src/index.js": function(module, exports, __webpack_require__) {
+            eval("console.log(\"index module\");\nvar a = __webpack_require__(\"./src/a.js\");\nconsole.log(a);//# sourceURL=./src/index.js")
+        }
+    }
+)
+```
+
+------
+
+代码内容查看：`03-编译结果分析`
+
+`./dist/my-main.js`是模仿webpack编译后的打包文件的代码，以便理解原理
+
+`./dist/test-eval.js`是测试eval，在浏览器调试的代码
 
 ### 配置文件
 
@@ -164,7 +356,35 @@ webpack提供的cli支持很多的参数，例如```--mode```，但更多的时�
 
 ### devtool 配置
 
+文档：[webpack - devtool](*https://www.webpackjs.com/configuration/devtool/#devtool*)
+
+#### source map 源码地图
+
+> 本小节的知识与 webpack 无关
+
+前端发展到现阶段，很多时候都不会直接运行源代码，可能需要对源代码进行合并、压缩、转换等操作，真正运行的是转换后的代码
+
+![05_01](./.images/05_01.png)
+
+这就给调试带来了困难，因为当运行发生错误的时候，我们更加希望能看到源代码中的错误，而不是转换后代码的错误。
 
 
 
+> jquery压缩后的代码：https://code.jquery.com/jquery-3.4.1.min.js
 
+为了解决这一问题，chrome浏览器率先支持了source map，其他浏览器纷纷效仿，目前，几乎所有新版浏览器都支持了source map
+
+source map实际上是一个配置，配置中不仅记录了所有源码内容，还记录了和转换后的代码的对应关系
+
+下面是浏览器处理source map的原理
+
+![](./.images/05_02.png)
+
+![05_03](./.images/05_03.png)
+
+在这里，你会产生疑问：**编译结果分析**那节的eval不也能起到这样的效果吗？为什么要用source map这么技术呢？
+
+**最佳实践**：
+
+1. source map 应在开发环境中使用，作为一种调试手段
+2. source map 不应该在生产环境中使用，source map的文件一般较大，不仅会导致额外的网络传输，还容易暴露原始代码。即便要在生产环境中使用source map，用于调试真实的代码运行问题，也要做出一些处理规避网络传输和代码暴露的问题。
