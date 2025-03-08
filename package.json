@@ -4,13 +4,15 @@
   "description": "学习 webpack 构建工具",
   "main": "index.js",
   "scripts": {
-    "bundle:01": "pnpm -F run @learn-webpack/01 build",
-    "bundle:02": "pnpm -F run @learn-webpacl/02 build"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "vitepress": "^1.6.3",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1"
   }

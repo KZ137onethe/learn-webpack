@@ -5,8 +5,11 @@ pnpm-lock.yaml
 
 # 打包测试时，忽略的文件
 **/dist/main.js
-07-入口和出口/target/**
+第1章 核心功能/07-入口和出口/target/**
 
 # demo中不忽略和忽略的文件
 demo/**/dist/*.js
 demo/**/dist/*.map
+
+# 忽略docs的缓存文件
+docs/.vitepress/cache
