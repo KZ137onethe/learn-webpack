@@ -1,12 +1,12 @@
 # 依赖相关
 node_modules
 pnpm-lock.yaml
+**/package-lock.json
 
 # 打包测试时，忽略的文件
 **/dist/main.js
 07-入口和出口/target/**
 
-# demo中不忽略的文件
-!demo/数字查找特效/dist/index.html
-
-
+# demo中不忽略和忽略的文件
+demo/**/dist/*.js
+demo/**/dist/*.map
