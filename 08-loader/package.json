@@ -1,0 +1,13 @@
+{
+  "name": "@learn-webpack/08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:empty-config": "npx webpack --config empty.config.js",
+    "build": "npx webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

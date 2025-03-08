@@ -336,6 +336,8 @@ function run(modules) {
 
 `./dist/test-eval.js`是测试eval，在浏览器调试的代码
 
+------
+
 ### 配置文件
 
 webpack提供的cli支持很多的参数，例如```--mode```，但更多的时候，我们会使用更加灵活的配置文件来控制webpack的行为
@@ -356,7 +358,7 @@ webpack提供的cli支持很多的参数，例如```--mode```，但更多的时�
 
 ### devtool 配置
 
-文档：[webpack - devtool](*https://www.webpackjs.com/configuration/devtool/#devtool*)
+文档：[webpack - devtool](https://www.webpackjs.com/configuration/devtool/#devtool)
 
 #### source map 源码地图
 
@@ -367,8 +369,6 @@ webpack提供的cli支持很多的参数，例如```--mode```，但更多的时�
 ![05_01](./.images/05_01.png)
 
 这就给调试带来了困难，因为当运行发生错误的时候，我们更加希望能看到源代码中的错误，而不是转换后代码的错误。
-
-
 
 > jquery压缩后的代码：https://code.jquery.com/jquery-3.4.1.min.js
 
@@ -382,9 +382,275 @@ source map实际上是一个配置，配置中不仅记录了所有源码内容�
 
 ![05_03](./.images/05_03.png)
 
-在这里，你会产生疑问：**编译结果分析**那节的eval不也能起到这样的效果吗？为什么要用source map这么技术呢？
+> <u>在这里，你会产生疑问：**编译结果分析**那节的eval不也能起到这样的效果吗？为什么要用source map这么技术呢？</u>
+>
+> 你可以认为eval在浏览器中是一个简易版的source map（起到的效果是，但实际不是），它是给浏览器看的。
+>
+> eval主要缺点是，由于会映射到转换后的代码，而不是映射到原始代码（没有从 loader 中获取 source map），所以不能正确的显示行数。
+>
+> 而source map没有这个缺点
 
 **最佳实践**：
 
 1. source map 应在开发环境中使用，作为一种调试手段
 2. source map 不应该在生产环境中使用，source map的文件一般较大，不仅会导致额外的网络传输，还容易暴露原始代码。即便要在生产环境中使用source map，用于调试真实的代码运行问题，也要做出一些处理规避网络传输和代码暴露的问题。
+
+最佳实践webpack的文档里面也有说明：
+
+[开发环境](https://www.webpackjs.com/configuration/devtool/#development)
+
+[生产环境](https://www.webpackjs.com/configuration/devtool/#production)
+
+### 编译过程
+
+webpack 的作用是将源代码编译（构建、打包）成最终代码
+
+![06_01](./.images/06_01.png)
+
+整个过程大致分为三个步骤
+
+1. 初始化
+2. 编译
+3. 输出
+
+![06_02](./.images/06_02.png)
+
+#### 初始化
+
+> 首先明白一点，使用webpack时需要用到webpack和webpack-cli这两个包，webpack这个包负责**模块打包**的核心逻辑，那么webpack-cli的作用是什么？
+>
+> webpack-cli 是 Webpack 的**命令行接口工具**，提供用户与 Webpack 交互的入口，让开发者通过配置文件来调用webpack的api进行**模块打包**，这中方式是为了提供友好的命令和提示。
+
+此阶段，webpack-cli这个包会将**CLI参数**、**配置文件**、**默认配置**进行融合，形成一个最终的配置对象。
+
+代码使用的webpack-cli处理版本是@6.0.1，它对配置的处理过程概述其下：
+
+1. **CLI 参数解析**：通过 `commander` 解析用户输入的命令行参数。
+2. **配置文件加载**：通过 `interpret/rechoir` 加载配置文件（如 `webpack.config.js`）。
+3. **配置合并**：使用 `webpack-merge` 将 CLI 参数、配置文件、默认配置合并为最终对象。
+4. **配置验证**：通过内部逻辑或 `@webpack-cli/configtest` 检查配置合法性。
+
+#### 编译
+
+1. **创建chunk**
+
+   chunk是webpack在内部构建过程中的一个概念，译为```块```，它表示通过某个入口找到的所有依赖的统称。
+
+   根据入口模块（默认为```./src/index.js```）创建一个chunk
+
+   ![06_03](./.images/06_03.png)
+
+   每个chunk都有至少两个属性：
+
+   - name：默认为main
+   - id：唯一编号，开发环境和name相同，生产环境是一个数字，从0开始
+
+2. **构建所有依赖模块**
+   ![06_04](./.images/06_04.png)
+
+   > AST在线测试工具：https://astexplorer.net/
+
+   简图：
+
+   ![06_05](./.images/06_05.png)
+
+3. **合并chunk assets**
+
+将多个chunk的assets合并到一起，并产生一个总的hash
+
+![](./.images/06_06.png)
+
+#### 输出
+
+此步骤非常简单，webpack将利用node中的fs模块（文件处理模块），根据编译产生的总的assets，生成相应的文件。
+
+![](./.images/06_07.png)
+
+#### 总过程
+
+![](./.images/06_08.png)
+
+![](./.images/06_09.png)
+
+**涉及术语**
+
+1. module：模块，分割的代码单元，webpack中的模块可以是任何内容的文件，不仅限于JS
+2. chunk：webpack内部构建模块的块，一个chunk中包含多个模块，这些模块是从入口模块通过依赖分析得来的
+3. bundle：chunk构建好模块后会生成chunk的资源清单，清单中的每一项就是一个bundle，可以认为bundle就是最终生成的文件
+4. hash：最终的资源清单所有内容联合生成的hash值
+5. chunkhash：chunk生成的资源清单内容联合生成的hash值
+6. chunkname：chunk的名称，如果没有配置则使用main
+7. id：通常指chunk的唯一编号，如果在开发环境下构建，和chunkname相同；如果是生产环境下构建，则使用一个从0开始的数字进行编号
+
+### 入口和出口
+
+> 这里指的入口和出口是相对于配置文件来说的（webpack.config.js）
+
+**出口**
+
+这里的出口是针对资源列表的文件名或路径的配置，出口通过output进行配置
+
+**入口**
+
+**入口真正配置的是chunk**，入口通过entry进行配置
+
+规则：
+
+- name：chunkname
+- hash: 总（chunk）的资源hash，通常用于解决缓存问题
+- chunkhash: 整个chunk的内容生成的hash（比如说：一个chunk下的JavaScript和CSS等资源使用同一个hash）
+- contenthash：单个文件的内容生成的hash（比如说：一个chunk下的JavaScript和CSS等资源使用各自内容的hash）
+- id: 使用chunkid，不推荐
+
+------
+
+代码内容查看：`07-入口和出口`
+
+里面有更多内容，这里不做解释
+
+------
+
+#### 入口和出口的最佳实践
+
+具体情况具体分析
+
+下面是一些经典场景
+
+##### 一个页面一个JS
+
+![](./.images/07_01.png)
+
+源码结构
+
+```
+|—— src
+    |—— pageA   页面A的代码目录
+        |—— index.js 页面A的启动模块
+        |—— ...
+    |—— pageB   页面B的代码目录
+        |—— index.js 页面B的启动模块
+        |—— ...
+    |—— pageC   页面C的代码目录
+        |—— main1.js 页面C的启动模块1 例如：主功能
+        |—— main2.js 页面C的启动模块2 例如：实现访问统计的额外功能
+        |—— ...
+    |—— common  公共代码目录
+        |—— ...
+```
+
+webpack配置
+
+```js
+module.exports = {
+    entry:{
+        pageA: "./src/pageA/index.js",
+        pageB: "./src/pageB/index.js",
+        pageC: ["./src/pageC/main1.js", "./src/pageC/main2.js"]
+    },
+    output:{
+        filename:"[name].[chunkhash:5].js"
+    }
+}
+```
+
+这种方式适用于页面之间的功能差异巨大、公共代码较少的情况，这种情况下打包出来的最终代码不会有太多重复
+
+##### 一个页面多个JS
+
+![](./.images/07_02.png)
+
+源码结构
+
+```
+|—— src
+    |—— pageA   页面A的代码目录
+        |—— index.js 页面A的启动模块
+        |—— ...
+    |—— pageB   页面B的代码目录
+        |—— index.js 页面B的启动模块
+        |—— ...
+    |—— statistics   用于统计访问人数功能目录
+        |—— index.js 启动模块
+        |—— ...
+    |—— common  公共代码目录
+        |—— ...
+```
+
+webpack配置
+
+```js
+module.exports = {
+    entry:{
+        pageA: "./src/pageA/index.js",
+        pageB: "./src/pageB/index.js",
+        statistics: "./src/statistics/index.js"
+    },
+    output:{
+        filename:"[name].[chunkhash:5].js"
+    }
+}
+```
+
+这种方式适用于页面之间有一些**独立**、相同的功能，专门使用一个chunk抽离这部分JS有利于浏览器更好的缓存这部分内容。
+
+> 思考：为什么不使用多启动模块的方式？
+
+##### 单页应用
+
+所谓单页应用，是指整个网站（或网站的某一个功能块）只有一个页面，页面中的内容全部靠JS创建和控制。 vue和react都是实现单页应用的利器。
+
+![](./.images/07_03.png)
+
+源码结构
+
+```
+|—— src
+    |—— subFunc   子功能目录
+        |—— ...
+    |—— subFunc   子功能目录
+        |—— ...
+    |—— common  公共代码目录
+        |—— ...
+    |—— index.js
+```
+
+webpack配置
+
+```js
+module.exports = {
+    entry: "./src/index.js",
+    output:{
+        filename:"index.[hash:5].js"
+    }
+}
+```
+
+### loader
+
+> webpack做的事情，仅仅是分析出各种模块的依赖关系，然后形成资源列表，最终打包生成到指定的文件中。
+> 更多的功能需要借助webpack loaders和webpack plugins完成。
+
+下面说一下loader的作用：
+
+在webpack中loader本质上是一个函数，它的作用是将某个源码字符串转换成另一个源码字符串返回。
+
+![08_01](./.images/08_01.png)
+
+loader是在chunk解析的流程中运行的：
+
+![](./.images/08_02.png)
+
+处理loader的流程：
+
+![](./.images/08_03.png)
+
+------
+
+有关loader的具体使用请看`08-loader`
+
+1. `./src/index.js`是一个入口文件，但是里面的是JavaScript语法不正确的代码
+2. `empty.config.js`是一个空的配置文件，作用是为了对比没有使用loader时，编译后的代码
+3. `webpack.config.js`是适用loader的配置文件，一方面是为了对比没有使用loader时，对代码的处理，另一方面可以看到loader的配置怎么使用
+
+------
+

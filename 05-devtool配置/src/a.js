@@ -1,3 +1,3 @@
 var obj = null;
-obj.abc();
+const t = obj.abc();
 console.log("a module");
