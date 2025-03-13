@@ -12,5 +12,6 @@ demo/**/dist/*.js
 demo/**/dist/*.map
 demo/**/dist/*.json
 
-# 忽略docs的缓存文件
+# 忽略docs相关
 docs/.vitepress/cache
+/public
