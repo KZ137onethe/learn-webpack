@@ -17,6 +17,8 @@ module.exports = {
       // 配置将库暴露的方式。参考：https://www.webpackjs.com/configuration/output/#outputlibrarytype
       type: "window",
     },
+    // 在生成文件之前清空 output 目录
+    clean: true,
   },
   // 部署环境，比如：浏览器它不认识fs模块，那么引入fs模块在浏览器环境下打包就会报错。参考：https://www.webpackjs.com/configuration/target/
   target: "web",
