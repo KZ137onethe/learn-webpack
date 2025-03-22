@@ -19,7 +19,7 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, "public"),
     },
-    // host: "local-ip",
+    host: "local-ip",
     // 参考：https://www.webpackjs.com/configuration/dev-server/#devserverproxy
     proxy: [
       {
