@@ -12,6 +12,7 @@ pnpm-lock.yaml
 demo/**/dist/*.js
 demo/**/dist/*.map
 demo/**/dist/*.json
+demo/区域查询/dist/**
 
 # 忽略docs相关
 docs/.vitepress/cache

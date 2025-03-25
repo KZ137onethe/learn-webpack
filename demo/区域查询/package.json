@@ -1,0 +1,17 @@
+{
+  "name": "regional_query",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx webpack-dev-server",
+    "build": "npx webpack --env.prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "query-string": "^9.1.1"
+  }
+}
