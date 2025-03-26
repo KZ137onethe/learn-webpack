@@ -1,0 +1,10 @@
+@import "./pager.css";
+
+.bg-img {
+    background-image: url("./bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid;
+    width: 200px;
+    height: 200px;
+}

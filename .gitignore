@@ -7,6 +7,7 @@ pnpm-lock.yaml
 **/dist/main.js
 第1章 核心功能/07-入口和出口/target/**
 第2章 常用扩展/**/dist/**
+第3章 css工程化/**/dist/**
 
 # demo中不忽略和忽略的文件
 demo/**/dist/*.js
