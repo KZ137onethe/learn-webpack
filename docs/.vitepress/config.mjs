@@ -10,8 +10,8 @@ export default defineConfig({
   themeConfig: {
     // 导航菜单配置，参考：https://vitepress.dev/zh/reference/default-theme-nav
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Demo", link: "/Demo" },
+      { text: "首页", link: "/" },
+      { text: "演示", link: "/Demo" },
     ],
     // 大纲容器, 参考：https://vitepress.dev/zh/reference/default-theme-config#outline
     outline: {
@@ -36,8 +36,12 @@ export default defineConfig({
     // 可以定义此选项以在导航栏中展示带有图标的社交帐户链接，参考：https://vitepress.dev/zh/reference/default-theme-config#sociallinks
     socialLinks: [
       {
+        icon: "github",
+        link: "https://github.com/KZ137onethe/learn-webpack",
+      },
+      {
         icon: "gitlab",
-        link: "http://code.thylovezq.site:30086/YangHai/learn-webpack",
+        link: "http://43.136.232.43:30086/YangHai/learn-webpack",
       },
     ],
     // 允许自定义上次更新的文本和日期格式，参考：https://vitepress.dev/zh/reference/default-theme-config#lastupdated
@@ -51,6 +55,26 @@ export default defineConfig({
     // 支持搜索站点文档，参考：https://vitepress.dev/zh/reference/default-theme-search
     search: {
       provider: "local",
+      options: {
+        translations: {
+          button: {
+            buttonText: "搜索文档",
+            buttonAriaLabel: "搜索文档",
+          },
+          modal: {
+            noResultsText: "无法找到相关结果",
+            resetButtonTitle: "清除查询条件",
+            footer: {
+              selectText: "选择",
+              navigateText: "切换",
+            },
+          },
+        },
+      },
+    },
+    // 底部配置
+    footer: {
+      copyright: "CopyRight@ 2025 KZ137onethe",
     },
   },
   markdown: {
