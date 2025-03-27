@@ -34,8 +34,6 @@ jobs:
         with:
           node-version: 18
           cache: pnpm # 设置缓存
-          # 增加 pnpm 路径配置 ↓
-          cache-dependency-path: pnpm-lock.yaml
       - name: Enable pnpm # 新增步骤
         run: corepack enable
       - name: Setup Pages
