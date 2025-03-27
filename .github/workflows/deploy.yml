@@ -33,12 +33,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: pnpm # 设置缓存
-          cache-dependency-path: pnpm-lock.yaml
+          # cache: pnpm # 设置缓存
+          # cache-dependency-path: pnpm-lock.yaml
       - name: Enable pnpm
         run: corepack enable
       - name: Install dependencies
         run: pnpm install --frozen-lockfile # 安装依赖
+
       - name: Setup Pages
         uses: actions/configure-pages@v3 # 在工作流程自动配置GithubPages
       - name: Build with VitePress
