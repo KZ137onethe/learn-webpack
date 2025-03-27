@@ -1,4 +1,5 @@
 packages:
   - "第[0-9]章*/[00-99]-*"
   - "demo/**"
+  - "concept/**"
   - "!node_modules"

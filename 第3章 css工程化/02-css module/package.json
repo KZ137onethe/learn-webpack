@@ -1,0 +1,13 @@
+{
+  "name": "@learn-webpack/2-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx webpack-dev-server",
+    "bundle": "npx webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
