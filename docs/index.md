@@ -6,9 +6,6 @@ layout: home
 hero:
   name: "webpack的文档站"
   tagline: "学习webpack构建工具的文档沉淀，用于记录，持续学习"
-  image:
-    src: ./.images/assets/webpack.png
-    alt: 背景图
   actions:
     - theme: brand
       text: Start
