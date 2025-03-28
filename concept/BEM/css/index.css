@@ -1,0 +1,51 @@
+/*
+  TODO: 编写BEM规则的CSS选择器样式
+  参考：
+    文章：https://juejin.cn/post/7377683176229224475
+    BEM 官方网站：https://getbem.com/introduction/
+    实践参考element-plus：https://element-plus.org/zh-CN/component/button.html
+*/
+@import url("./button.css");
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  margin: 0;
+  padding: 10px 20px;
+  height: 100vh;
+  background-color: #f5f3f2;
+  overflow: hidden;
+}
+
+.page__head {
+  margin: 10px 0;
+  height: 60px;
+}
+
+.page__title {
+  font-weight: 700;
+}
+
+.page__desc {
+  margin: 12px 0;
+}
+
+.page__body {
+  min-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.button-item-area {
+  padding: 1.5rem;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  background-color: #fff;
+}
