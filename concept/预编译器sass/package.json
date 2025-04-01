@@ -1,0 +1,15 @@
+{
+  "name": "@learn-webpack/sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass:watch": "npx sass --watch src/sass:dist/stylesheets"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.86.1"
+  }
+}

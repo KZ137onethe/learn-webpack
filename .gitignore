@@ -8,6 +8,10 @@ node_modules
 第2章 常用扩展/**/dist/**
 第3章 css工程化/**/dist/**
 
+# 忽略概念文件中
+concept/**/dist/**
+!concept/预编译器sass/dist/index.html
+
 # demo中不忽略和忽略的文件
 demo/**/dist/*.js
 demo/**/dist/*.map

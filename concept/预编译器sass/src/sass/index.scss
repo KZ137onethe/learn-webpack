@@ -1,0 +1,114 @@
+// 局部模块
+@use "root";
+@use "reset";
+@use "sass:math";
+
+// 变量
+$primary-color: #6ca8af;
+
+body {
+  color: $primary-color;
+}
+
+// 嵌套
+#app {
+  display: flex;
+  height: 100vh;
+  .container {
+    flex: 1;
+  }
+  .slide {
+    flex: 0 0 450px;
+  }
+}
+
+// 混入
+@mixin theme($t: DarkGray) {
+  background-color: $t;
+  box-shadow: 0 0 1px rgba($t, 0.2);
+  color: black;
+}
+
+.info {
+  @include theme;
+  height: 20px;
+}
+
+.warn {
+  @include theme(DarkOrange);
+  height: 20px;
+}
+
+.success {
+  @include theme(DarkGreen);
+  height: 20px;
+}
+
+// 扩展、继承
+%btn-styles {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--btn-text-color);
+  background-color: var(--btn-bg-color);
+  border-color: var(--btn-border-color);
+
+  &:hover {
+    color: var(--btn-hover-text-color);
+    background-color: var(--btn-hover-bg-color);
+    border-color: var(--btn-hover-border-color);
+  }
+
+  &:active {
+    color: var(--btn-active-text-color);
+    background-color: var(--btn-active-bg-color);
+    border-color: var(--btn-active-border-color);
+  }
+}
+
+.btn--primary {
+  @extend %btn-styles;
+}
+
+.btn--success {
+  @extend %btn-styles;
+  --btn-text-color: #fff;
+  --btn-bg-color: #67C23A;
+  --btn-border-color: #67C23A;
+
+  --btn-hover-text-color: #fff;
+  --btn-hover-border-color:rgb(149, 212, 117);
+  --btn-hover-bg-color:rgb(149, 212, 117);
+
+  --btn-active-text-color: var(--btn-hover-text-color);
+  --btn-active-border-color:rgb(82, 155, 46);
+  --btn-active-bg-color: rgb(82, 155, 46);
+}
+
+// 运算符
+.slide {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 600px;
+
+  > .advertisement {
+    width: 100%;
+    height: math.div(200px, 600px) * 100%;
+    background-color: #6ca8af;
+  }
+
+  > .recommend {
+    width: 100%;
+    height: math.div(400px, 600px) * 100%;
+    border: 1px solid green;
+  }
+}
+
