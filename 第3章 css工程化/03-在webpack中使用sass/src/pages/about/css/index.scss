@@ -1,5 +1,12 @@
 $primay-color: #c12c1f;
 
 #app {
+  display: flex;
   color: $primay-color;
+  height: 100vh;
+
+  .container {
+    flex: 1;
+    background-color: azure;
+  }
 }

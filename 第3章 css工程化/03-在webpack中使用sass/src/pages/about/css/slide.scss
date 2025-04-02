@@ -1,0 +1,22 @@
+$konwn-shadow-prefixes: box, text;
+
+@mixin shadow($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if not index($konwn-shadow-prefixes, $prefix) {
+      // @warn "不能使用这个prefix: " + #{$prefix};
+    }
+    #{$prefix}-#{$property}: $value;
+  }
+}
+
+.slide {
+  flex: 0 0 300px;
+  background-color: antiquewhite;
+
+  .text {
+    border: 1px solid black;
+    padding: 10px 12px;
+    @include shadow(shadow, 5px 5px 5px red, box text abc)
+  }
+}
+

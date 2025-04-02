@@ -58,6 +58,9 @@ importers:
 
   第3章 css工程化/03-在webpack中使用sass:
     devDependencies:
+      mini-css-extract-plugin:
+        specifier: ^2.9.2
+        version: 2.9.2(webpack@5.98.0)
       sass:
         specifier: ^1.86.1
         version: 1.86.1
@@ -1673,6 +1676,12 @@ packages:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  mini-css-extract-plugin@2.9.2:
+    resolution: {integrity: sha512-GJuACcS//jtq4kCtd5ii/M0SZf7OZRH+BxdqXZHaJfb8TJiVl+NgQRPwiYt2EuqeSkNydn/7vP+bcE27C5mb9w==}
+    engines: {node: '>= 12.13.0'}
+    peerDependencies:
+      webpack: ^5.0.0
 
   minimalistic-assert@1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
@@ -3982,6 +3991,12 @@ snapshots:
       mime-db: 1.52.0
 
   mime@1.6.0: {}
+
+  mini-css-extract-plugin@2.9.2(webpack@5.98.0):
+    dependencies:
+      schema-utils: 4.3.0
+      tapable: 2.2.1
+      webpack: 5.98.0
 
   minimalistic-assert@1.0.1: {}
 
