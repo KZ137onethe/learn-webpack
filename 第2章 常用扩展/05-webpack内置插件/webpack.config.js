@@ -1,3 +1,5 @@
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
@@ -20,7 +22,15 @@ module.exports = {
     }),
     // 自动加载模块，而不必到处import或者require
     new webpack.ProvidePlugin({
+      utils: path.resolve(__dirname, "src/utils/index.js"),
       $: "jquery",
+      map: ["lodash-es", "map"],
+      "window.lodash": "lodash-es",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      chunks: ["main"],
+      filename: "index.html",
     }),
   ],
 };
