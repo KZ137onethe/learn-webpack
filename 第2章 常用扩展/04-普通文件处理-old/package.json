@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "file-loader": "^6.2.0",
+    "raw-loader": "^4.0.2",
     "url-loader": "^4.1.1"
   }
 }

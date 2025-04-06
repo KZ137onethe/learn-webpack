@@ -11,32 +11,32 @@ module.exports = {
   },
   module: {
     rules: [
-      // /** 发送一个单独的文件并导出 URL
-      //  * 类似与 file-loader
-      //  * generator.filename - 自定义输出文件名，但仅适用于 asset 和 asset/resource 模块类型
-      //  */
-      // {
-      //   test: /\.(png|jpe?g|gif)$/,
-      //   type: "asset/resource",
-      //   generator: {
-      //     filename: "images/[name]-[contenthash:5].[ext]",
-      //   },
-      // },
+      /** 发送一个单独的文件并导出 URL
+       * 类似与 file-loader
+       * generator.filename - 自定义输出文件名，但仅适用于 asset 和 asset/resource 模块类型
+       */
+      {
+        test: /\.png$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "imgs/[name]-[contenthash:5].[ext]",
+        },
+      },
       //////////////////////////////////////////////////////////////////////////////////////////////////
-      // /** 导出一个资源的 data URI
-      //  * 类似于 url-loader
-      //  */
-      // {
-      //   test: /\.(png|jpe?g|gif)$/,
-      //   type: "asset/inline",
-      // },
+      /** 导出一个资源的 data URI
+       * 类似于 url-loader
+       */
+      {
+        test: /\.jpe?g$/i,
+        type: "asset/inline",
+      },
       /////////////////////////////////////////////////////////////////////////////////////////////////
       /** 导出资源的源代码
        * 类似与 raw-loader
-       * 比如：导出.txt文件的源代码在JavaScript中使用；但不合适直接导出图片等源代码
+       * 比如：导出.txt等文件的源代码在JavaScript中使用；但不合适直接导出图片等源代码
        */
       {
-        test: /\.txt$/,
+        test: /\.(txt|svg)$/,
         type: "asset/source",
       },
       /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,15 +47,15 @@ module.exports = {
        * 大于这个临界值将 发送一个单独的文件
        */
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.webp$/,
         type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: 4 * 1024,
+            maxSize: 20 * 1024,
           },
         },
         generator: {
-          filename: "img/[name]-[contenthash:5].[ext]",
+          filename: "imgs/[name]-[contenthash:5].[ext]",
         },
       },
     ],
