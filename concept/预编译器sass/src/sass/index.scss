@@ -23,24 +23,24 @@ body {
 }
 
 // 混入
-@mixin theme($t: DarkGray) {
+@mixin shadow-themes($color: DarkGray) {
   background-color: $t;
   box-shadow: 0 0 1px rgba($t, 0.2);
   color: black;
 }
 
 .info {
-  @include theme;
+  @include shadow-themes;
   height: 20px;
 }
 
 .warn {
-  @include theme(DarkOrange);
+  @include shadow-themes(DarkOrange);
   height: 20px;
 }
 
 .success {
-  @include theme(DarkGreen);
+  @include shadow-themes(DarkGreen);
   height: 20px;
 }
 
