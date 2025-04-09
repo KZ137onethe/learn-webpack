@@ -1,15 +1,15 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   /** 入口配置的是 chunk，可以配置多个chunk
    * 属性名代表 chunk 的名称
    * 属性值是 chunk 的路径，可以是相对路径，且路径可以用一个数组来包含多个路径，当然该chunk最终只会打包成一个文件
    * ! 配置多个chunk作为入口文件时，出口文件不能仅是一个静态的写法
    */
   entry: {
-    main: './src/index.js',
-    a: ['./src/a.js', './src/a-1.js']
+    main: "./src/index.js",
+    a: ["./src/a.js", "./src/a-1.js"],
   },
   output: {
     // 配置的是该仓库对于操作系统的绝对路径，通常需要path模块拼接路径
@@ -23,7 +23,7 @@ module.exports = {
      *  如果内容变了，hash值也会改变，文件名改变，浏览器向服务器请求最新的资源
      *  所以这里文件用hash值能帮助html页面减少网络传输的资源
      */
-    filename: '[name]-[chunkhash].js'
+    filename: "[name]-[chunkhash].js",
   },
   // devtool: 'source-map'
-}
+};

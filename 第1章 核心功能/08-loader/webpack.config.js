@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'development',
+  mode: "development",
   module: {
     // 标识模块的匹配规则，每个数组的对象都是一个规则
     rules: [
@@ -18,21 +18,21 @@ module.exports = {
              * 可以是query的方式，如：./loaders/test-loader.js?changeVar=变量
              * 也可以是下面options对象的方式
              */
-            loader: './loaders/test-loader',
+            loader: "./loaders/test-loader",
             // 配置对象
             options: {
-              changeVar: "变量"
-            }
+              changeVar: "变量",
+            },
           },
-          "./loaders/loader1.js?a=1&b=2&c=3"
+          "./loaders/loader1.js?a=1&b=2&c=3",
         ],
       },
       {
         test: /\.js$/g,
-        use: ["./loaders/loader2.js", "./loaders/loader3.js"]
-      }
+        use: ["./loaders/loader2.js", "./loaders/loader3.js"],
+      },
     ],
     // 是否不要解析某个模块
     // noParse
-  }
-}
+  },
+};

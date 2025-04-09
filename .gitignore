@@ -3,8 +3,14 @@ node_modules
 **/package-lock.json
 
 # 打包测试时，忽略的文件
-**/dist/main.js
-第1章 核心功能/07-入口和出口/target/**
+# 第一章
+第1章 核心功能/**/target/**.js
+第1章 核心功能/**/target/**.js.map
+第1章 核心功能/**/dist/**.js
+第1章 核心功能/**/dist/**.js.map
+!第1章 核心功能/03-编译结果分析/dist/my-main.js
+!第1章 核心功能/03-编译结果分析/dist/test-eval.js
+# 第二章
 第2章 常用扩展/**/dist/**
 第3章 css工程化/**/dist/**
 

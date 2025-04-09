@@ -1,7 +1,10 @@
 module.exports = {
   /* 编译模式，支持两种环境：development和production */
-  // mode: "development",
+  mode: "development",
+  entry: {
+    main: "./src/main.js",
+  },
   output: {
-    fileName: "bundle.js",
+    filename: "bundle.js",
   },
 };
