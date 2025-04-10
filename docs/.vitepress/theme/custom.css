@@ -1,0 +1,17 @@
+/* stylelint-disable selector-class-pattern */
+:root {
+  --vp-layout-max-width: 100% !important;
+  --vp-screen-max-width: 100% !important;
+}
+
+.container {
+  max-width: none !important;
+}
+
+.content-container {
+  max-width: none !important;
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: none !important;
+}

@@ -82,6 +82,6 @@ export default defineConfig({
       lazyLoading: true,
     },
   },
-  outDir: "../public",
+  outDir: "./dist",
   base: "/learn-webpack/",
 });
