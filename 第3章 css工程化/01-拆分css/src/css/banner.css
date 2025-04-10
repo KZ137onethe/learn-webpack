@@ -1,4 +1,4 @@
-@import "./pager.css";
+@import url("./pager.css");
 
 .bg-img {
     background-image: url("./bg.png");

@@ -20,6 +20,12 @@ importers:
       style-loader:
         specifier: ^4.0.0
         version: 4.0.0(webpack@5.98.0)
+      stylelint:
+        specifier: ^16.18.0
+        version: 16.18.0
+      stylelint-config-standard:
+        specifier: ^38.0.0
+        version: 38.0.0(stylelint@16.18.0)
       vitepress:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.20.4)(@types/node@22.13.5)(less@4.2.2)(postcss@8.5.3)(sass@1.86.1)(search-insights@2.17.3)(terser@5.39.0)
@@ -32,6 +38,8 @@ importers:
       webpack-dev-server:
         specifier: ^5.2.0
         version: 5.2.0(webpack-cli@6.0.1)(webpack@5.98.0)
+
+  concept/BEM: {}
 
   concept/CssInJs: {}
 
@@ -49,14 +57,8 @@ importers:
       postcss-preset-env:
         specifier: ^10.1.5
         version: 10.1.5(postcss@8.5.3)
-      stylelint:
-        specifier: ^16.18.0
-        version: 16.18.0
-      stylelint-config-standard:
-        specifier: ^38.0.0
-        version: 38.0.0(stylelint@16.18.0)
 
-  concept/预编译器sass:
+  concept/Sass:
     devDependencies:
       sass:
         specifier: ^1.86.1
@@ -83,14 +85,7 @@ importers:
 
   demo/添加文件列表: {}
 
-  第2章 常用扩展/05-webpack内置插件:
-    dependencies:
-      jquery:
-        specifier: ^3.7.1
-        version: 3.7.1
-      lodash-es:
-        specifier: ^4.17.21
-        version: 4.17.21
+  docs: {}
 
 packages:
 
@@ -2106,9 +2101,6 @@ packages:
   locate-path@5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
-
-  lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
 
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
@@ -5226,8 +5218,6 @@ snapshots:
   locate-path@5.0.0:
     dependencies:
       p-locate: 4.1.0
-
-  lodash-es@4.17.21: {}
 
   lodash.truncate@4.4.2: {}
 

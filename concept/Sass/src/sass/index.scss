@@ -14,9 +14,11 @@ body {
 #app {
   display: flex;
   height: 100vh;
+
   .container {
     flex: 1;
   }
+
   .slide {
     flex: 0 0 450px;
   }
@@ -81,15 +83,15 @@ body {
 .btn--success {
   @extend %btn-styles;
   --btn-text-color: #fff;
-  --btn-bg-color: #67C23A;
-  --btn-border-color: #67C23A;
+  --btn-bg-color: #67c23a;
+  --btn-border-color: #67c23a;
 
   --btn-hover-text-color: #fff;
-  --btn-hover-border-color:rgb(149, 212, 117);
-  --btn-hover-bg-color:rgb(149, 212, 117);
+  --btn-hover-border-color: rgb(149, 212, 117);
+  --btn-hover-bg-color: rgb(149, 212, 117);
 
   --btn-active-text-color: var(--btn-hover-text-color);
-  --btn-active-border-color:rgb(82, 155, 46);
+  --btn-active-border-color: rgb(82, 155, 46);
   --btn-active-bg-color: rgb(82, 155, 46);
 }
 
@@ -111,4 +113,3 @@ body {
     border: 1px solid green;
   }
 }
-

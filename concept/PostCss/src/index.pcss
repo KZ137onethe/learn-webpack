@@ -1,4 +1,4 @@
-@import url("./other.pcss");
+@import "./other.pcss";
 
 /*
   这里是 autoprefixer 这个插件起的作用
@@ -75,8 +75,10 @@ a:--enter {
   contrast(%)：调整对比度
 */
 p {
+  /* stylelint-disable-next-line scss/no-global-function-names */
   --text-color: color-mod(#06436f lightness(50%));
   --active-color: color-mod(#422256 alpha(70%));
   --hover-color: color-mod(#1e2732 blend(red 70%));
+  /* stylelint-disable-next-line scss/no-global-function-names */
   --disabled-color: color-mod(#007175 saturation(20%) alpha(-20%));
 }

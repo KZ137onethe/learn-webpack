@@ -27,4 +27,4 @@ demo/区域查询/dist/**
 
 # 忽略docs相关
 docs/.vitepress/cache
-/public
+docs/dist

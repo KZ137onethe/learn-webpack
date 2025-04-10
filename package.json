@@ -4,18 +4,20 @@
   "description": "学习 webpack 构建工具",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:local-preview": "pnpm run -F @learn-webpack/docs docs:dev",
+    "docs:bundle": "pnpm run -F @learn-webpack/docs docs:build",
+    "docs:bundle-preview": "pnpm run -F @learn-webpack/docs docs:preview"
   },
   "keywords": [],
-  "author": "",
+  "author": "KZ137onethe",
   "license": "ISC",
   "devDependencies": {
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
+    "stylelint": "^16.18.0",
+    "stylelint-config-standard": "^38.0.0",
     "vitepress": "^1.6.3",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1",
