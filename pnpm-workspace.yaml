@@ -1,6 +1,9 @@
 packages:
-  - "第[0-9]章*/[00-99]-*"
-  - "demo/**"
-  - "concept/**"
-  - "docs"
+  - 第[0-9]章*/[00-99]-*
+  - demo/**
+  - concept/**
+  - docs
   - "!node_modules"
+
+catalog:
+  vitepress: ^1.6.3

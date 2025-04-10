@@ -4,10 +4,6 @@
   --vp-screen-max-width: 100% !important;
 }
 
-.container {
-  max-width: none !important;
-}
-
 .content-container {
   max-width: none !important;
 }

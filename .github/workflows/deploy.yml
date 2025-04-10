@@ -44,14 +44,14 @@ jobs:
         uses: actions/configure-pages@v3 # 在工作流程自动配置GithubPages
       - name: Build with VitePress
         run: |
-          pnpm run docs:build # 启动项目
+          pnpm run docs:bundle # 启动项目
           touch .nojekyll  # 通知githubpages不要使用Jekyll处理这个站点，不知道为啥不生效，就手动搞了
       - name: Upload artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3 # 上传构建产物
         with:
           name: github-pages
-          path: public # 指定上传的路径，当前是根目录，如果是docs需要加docs/的前缀
+          path: docs/dist # 指定上传的路径，当前是根目录，如果是docs需要加docs/的前缀
 
   # 部署工作
   deploy:
