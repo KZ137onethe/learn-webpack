@@ -19,8 +19,8 @@
     "style-loader": "^4.0.0",
     "stylelint": "^16.18.0",
     "stylelint-config-standard": "^38.0.0",
-    "webpack": "^5.98.0",
-    "webpack-cli": "^6.0.1",
+    "webpack": "catalog:",
+    "webpack-cli": "catalog:",
     "webpack-dev-server": "^5.2.0"
   }
 }
