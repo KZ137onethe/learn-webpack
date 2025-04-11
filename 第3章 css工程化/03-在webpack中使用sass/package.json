@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.86.1",
     "sass-loader": "^16.0.5"
   }

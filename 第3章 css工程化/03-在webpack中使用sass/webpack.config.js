@@ -1,13 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = (env) => {
-  const isProduction = env.production;
-
+module.exports = () => {
   return {
-    mode: isProduction ? "production" : "development",
-    devtool: isProduction ? false : "source-map",
+    mode: "development",
+    devtool: "source-map",
     entry: {
       home: "/home/index.js",
       about: "/about/index.js",
@@ -23,9 +20,7 @@ module.exports = (env) => {
           test: /\.s[ac]ss/i,
           use: [
             {
-              loader: isProduction
-                ? MiniCssExtractPlugin.loader
-                : "style-loader",
+              loader: "style-loader",
             },
             {
               loader: "css-loader",
@@ -69,10 +64,6 @@ module.exports = (env) => {
       ],
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        filename: "css/[name].css",
-        chunkFilename: "[id].css",
-      }),
       new HtmlWebpackPlugin({
         template: "./home/index.html",
         chunks: ["home"],
