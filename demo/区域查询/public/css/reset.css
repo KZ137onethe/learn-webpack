@@ -88,6 +88,7 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
+    /* stylelint-disable-next-line declaration-block-no-shorthand-property-overrides */
     font: inherit;
     vertical-align: baseline;
 }
@@ -121,10 +122,10 @@ q {
     quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
     content: '';
     content: none;
 }

@@ -2,29 +2,26 @@
   --el-btn-text-color: #606266;
   --el-btn-bg-color: #fff;
   --el-btn-border-color: #dcdfe6;
-
   --el-btn-hover-text-color: #409eff;
-  --el-btn-hover-border-color:rgb(197.7, 225.9, 255);
-  --el-btn-hover-bg-color: rgb(235.9, 245.3, 255);
-
+  --el-btn-hover-border-color:rgb(197.7 225.9 255);
+  --el-btn-hover-bg-color: rgb(235.9 245.3 255);
   --el-btn-active-text-color: #409eff;
   --el-btn-active-border-color:#409eff;
-  --el-btn-active-bg-color: rgb(235.9, 245.3, 255);
-
+  --el-btn-active-bg-color: rgb(235.9 245.3 255);
   --el-btn-disabled-text-color: #a8abb2;
   --el-btn-disabled-border-color: #e4e7ed;
   --el-btn-disabled-bg-color: #fff;
-
   --el-border-radius-round: 20px;
 }
 
 .el-btn {
-  /*base*/
+  /* base */
   padding: 8px 15px;
   font-size: 14px;
   border: 1px solid #dcdfe6;
   border-radius: 4px;
-  /*main*/
+
+  /* main */
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -32,10 +29,11 @@
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  /*防止长按选择文本*/
-  -webkit-user-select: none;
+
+  /* 防止长按选择文本 */
   user-select: none;
-  /*变量*/
+
+  /* 变量 */
   color: var(--el-btn-text-color);
   background-color: var(--el-btn-bg-color);
   border-color: var(--el-btn-border-color);
@@ -45,22 +43,23 @@
   margin-left: 12px;
 }
 
-/*************************************************************************/
-/*元素被鼠标移动到其上时*/
+/************************************************************************  */
+
+/* 元素被鼠标移动到其上时 */
 .el-btn:hover {
   color: var(--el-btn-hover-text-color);
   border-color: var(--el-btn-hover-border-color);
   background-color: var(--el-btn-hover-bg-color);
 }
 
-/*元素被点击选中时*/
+/* 元素被点击选中时 */
 .el-btn:active {
   color: var(--el-btn-active-text-color);
   border-color: var(--el-btn-active-border-color);
   background-color: var(--el-btn-active-bg-color);
 }
 
-/*************************************************************************/
+/************************************************************************  */
 .el-btn.is-disabled {
   cursor: not-allowed;
   color: var(--el-btn-disabled-text-color);
@@ -72,59 +71,50 @@
   border-radius: var(--el-border-radius-round);
 }
 
-/*************************************************************************/
+/************************************************************************  */
 .el-btn--primary {
   --el-btn-text-color: #fff;
   --el-btn-bg-color: #409eff;
   --el-btn-border-color: #409eff;
-
   --el-btn-hover-text-color: #fff;
-  --el-btn-hover-border-color:rgb(121.3, 187.1, 255);
-  --el-btn-hover-bg-color:rgb(121.3, 187.1, 255);
-
+  --el-btn-hover-border-color:rgb(121.3 187.1 255);
+  --el-btn-hover-bg-color:rgb(121.3 187.1 255);
   --el-btn-active-text-color: var(--el-btn-hover-text-color);
-  --el-btn-active-border-color:rgb(51.2, 126.4, 204);
-  --el-btn-active-bg-color: rgb(51.2, 126.4, 204);
-
+  --el-btn-active-border-color:rgb(51.2 126.4 204);
+  --el-btn-active-bg-color: rgb(51.2 126.4 204);
   --el-btn-disabled-text-color: #fff;
-  --el-btn-disabled-border-color: rgb(160, 207, 255);
-  --el-btn-disabled-bg-color: rgb(160, 207, 255);
+  --el-btn-disabled-border-color: rgb(160 207 255);
+  --el-btn-disabled-bg-color: rgb(160 207 255);
 }
 
 .el-btn--success {
   --el-btn-text-color: #fff;
   --el-btn-bg-color: #67C23A;
   --el-btn-border-color: #67C23A;
-
   --el-btn-hover-text-color: #fff;
-  --el-btn-hover-border-color:rgb(149, 212, 117);
-  --el-btn-hover-bg-color:rgb(149, 212, 117);
-
+  --el-btn-hover-border-color:rgb(149 212 117);
+  --el-btn-hover-bg-color:rgb(149 212 117);
   --el-btn-active-text-color: var(--el-btn-hover-text-color);
-  --el-btn-active-border-color:rgb(82, 155, 46);
-  --el-btn-active-bg-color: rgb(82, 155, 46);
-
+  --el-btn-active-border-color:rgb(82 155 46);
+  --el-btn-active-bg-color: rgb(82 155 46);
   --el-btn-disabled-text-color: #fff;
-  --el-btn-disabled-border-color: rgb(179, 225, 157);
-  --el-btn-disabled-bg-color: rgb(179, 225, 157);
+  --el-btn-disabled-border-color: rgb(179 225 157);
+  --el-btn-disabled-bg-color: rgb(179 225 157);
 }
 
 .el-btn--info {
   --el-btn-text-color: #fff;
   --el-btn-bg-color: #909399;
   --el-btn-border-color: #909399;
-
   --el-btn-hover-text-color: #fff;
-  --el-btn-hover-border-color:rgb(177, 179, 184);
-  --el-btn-hover-bg-color:rgb(177, 179, 184);
-
+  --el-btn-hover-border-color:rgb(177 179 184);
+  --el-btn-hover-bg-color:rgb(177 179 184);
   --el-btn-active-text-color: var(--el-btn-hover-text-color);
-  --el-btn-active-border-color:rgb(115, 118, 122);
-  --el-btn-active-bg-color: rgb(115, 118, 122);
-
+  --el-btn-active-border-color:rgb(115 118 122);
+  --el-btn-active-bg-color: rgb(115 118 122);
   --el-btn-disabled-text-color: #fff;
-  --el-btn-disabled-border-color: rgb(200, 201, 204);
-  --el-btn-disabled-bg-color: rgb(200, 201, 204);
+  --el-btn-disabled-border-color: rgb(200 201 204);
+  --el-btn-disabled-bg-color: rgb(200 201 204);
 }
 
 

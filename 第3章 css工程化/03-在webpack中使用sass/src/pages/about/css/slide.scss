@@ -1,10 +1,13 @@
+@use "sass:list";
+
 $konwn-shadow-prefixes: box, text;
 
 @mixin shadow($property, $value, $prefixes) {
   @each $prefix in $prefixes {
-    @if not index($konwn-shadow-prefixes, $prefix) {
+    @if not list.index($konwn-shadow-prefixes, $prefix) {
       // @warn "不能使用这个prefix: " + #{$prefix};
     }
+
     #{$prefix}-#{$property}: $value;
   }
 }
@@ -16,7 +19,7 @@ $konwn-shadow-prefixes: box, text;
   .text {
     border: 1px solid black;
     padding: 10px 12px;
-    @include shadow(shadow, 5px 5px 5px red, box text abc)
+
+    @include shadow(shadow, 5px 5px 5px red, box text abc);
   }
 }
-

@@ -7,7 +7,8 @@
   "scripts": {
     "docs:local-preview": "pnpm run -F @learn-webpack/docs docs:dev",
     "docs:bundle": "pnpm run -F @learn-webpack/docs docs:build",
-    "docs:bundle-preview": "pnpm run -F @learn-webpack/docs docs:preview"
+    "docs:bundle-preview": "pnpm run -F @learn-webpack/docs docs:preview",
+    "lintcss": "stylelint **/*.{scss,css} --fix"
   },
   "keywords": [],
   "author": "KZ137onethe",
@@ -18,7 +19,7 @@
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
     "stylelint": "^16.18.0",
-    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^14.0.0",
     "webpack": "catalog:",
     "webpack-cli": "catalog:",
     "webpack-dev-server": "^5.2.0"
