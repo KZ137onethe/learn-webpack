@@ -1,0 +1,23 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx babel js -d dist -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "catalog:babel7",
+    "@babel/core": "catalog:babel7",
+    "@babel/plugin-transform-runtime": "^7.26.10",
+    "@babel/preset-env": "catalog:babel7",
+    "@babel/runtime": "^7.27.0",
+    "babel-plugin-transform-remove-console": "^6.9.4"
+  },
+  "dependencies": {
+    "core-js": "catalog:babel7"
+  }
+}

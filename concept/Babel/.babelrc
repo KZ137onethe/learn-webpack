@@ -1,0 +1,25 @@
+// 参考中文网：https://babel.nodejs.cn/
+{
+  // 预设（内置了很多插件）从后往前编译
+  "presets": [
+    [
+      "@babel/preset-env",
+      // 配置选项在：https://babel.nodejs.cn/docs/babel-preset-env
+      {
+        "useBuiltIns": "usage",
+        "corejs": "3.41",
+        // modules: false 将 转换成ES模块规范
+        "modules": false,
+        // 切换是否使用 浏览器列表配置源，包括搜索任何 browserslist 文件或引用 package.json 中的 browserslist 键，且这些文件不会用 Babel 编译
+        "ignoreBrowserslistConfig": true
+      }
+    ]
+  ],
+  // 官网插件列表：https://babel.nodejs.cn/docs/plugins-list
+  "plugins": [
+    // 移除打印日志 "babel-plugin-" 可以移除
+    ["babel-plugin-transform-remove-console", { "exclude": ["error", "warn"] }],
+    // 重用 babel 的注入帮助代码节省代码大小，参考：https://babel.nodejs.cn/docs/babel-plugin-transform-runtime
+    ["@babel/plugin-transform-runtime", { "corejs": 3, "version": "7.26.10" }]
+  ]
+}
