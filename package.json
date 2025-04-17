@@ -4,11 +4,16 @@
   "description": "学习 webpack 构建工具",
   "main": "index.js",
   "packageManager": "pnpm@9.15.2",
+  "engines": {
+    "node": "^20.10.0",
+    "rimraf": "^6.0.0"
+  },
   "scripts": {
     "docs:local-preview": "pnpm run -F @learn-webpack/docs docs:dev",
     "docs:bundle": "pnpm run -F @learn-webpack/docs docs:build",
     "docs:bundle-preview": "pnpm run -F @learn-webpack/docs docs:preview",
-    "lintcss": "stylelint **/*.{scss,css} --fix"
+    "lintcss": "stylelint **/*.{scss,css} --fix",
+    "clean": "rimraf **/node_modules --glob"
   },
   "keywords": [],
   "author": "KZ137onethe",

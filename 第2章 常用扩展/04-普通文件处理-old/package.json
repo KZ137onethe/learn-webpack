@@ -12,6 +12,10 @@
   "devDependencies": {
     "file-loader": "^6.2.0",
     "raw-loader": "^4.0.2",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "webpack": "catalog:webpack4",
+    "webpack-cli": "catalog:webpack4",
+    "html-webpack-plugin": "catalog:webpack4",
+    "clean-webpack-plugin": "catalog:webpack4"
   }
 }

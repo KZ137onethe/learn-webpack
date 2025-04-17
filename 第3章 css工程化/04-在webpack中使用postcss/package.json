@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "postcss-color-mod-function": "^4.1.1",
-    "postcss-import": "^16.1.0",
+    "postcss-color-mod-function": "catalog:",
+    "postcss-import": "catalog:",
     "postcss-loader": "^8.1.1",
-    "postcss-preset-env": "^10.1.5"
+    "postcss-preset-env": "catalog:"
   }
 }

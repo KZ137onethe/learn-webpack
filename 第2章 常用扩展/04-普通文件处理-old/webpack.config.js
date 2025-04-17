@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: "development",
   devtool: "source-map",
   output: {
     filename: "[name]-[contenthash:5].js",
-    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -13,6 +13,7 @@ module.exports = {
       filename: "index.html",
       chunks: ["main"],
     }),
+    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
