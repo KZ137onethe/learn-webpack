@@ -1,5 +1,5 @@
 {
-  "name": "learen-webpack",
+  "name": "learn-webpack",
   "version": "1.0.0",
   "description": "学习 webpack 构建工具",
   "main": "index.js",

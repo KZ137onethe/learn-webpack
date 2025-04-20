@@ -12,7 +12,7 @@ module.exports = {
   output: {
     filename: "js/[name].[contenthash:5].js",
     clean: true,
-    publicPath: "/",
+    publicPath: "./",
   },
   plugins: [
     // 配置参考：https://github.com/jantimon/html-webpack-plugin?tab=readme-ov-file#options

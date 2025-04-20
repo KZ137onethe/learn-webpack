@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Start
-      link: /前言
+      link: /knowledge/前言
     - theme: alt
       text: View on GitHub
       link: https://github.com/KZ137onethe/learn-webpack
