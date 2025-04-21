@@ -53,12 +53,14 @@ module.exports = {
   },
   // 精确地控制 bundle（构建） 信息该怎么显示。参考：https://www.webpackjs.com/configuration/stats/#root
   stats: {
-    // 告知 stats 是否输出不同的颜色。
+    // 告知 stats 是否展示资源信息，默认为 true
+    assets: true,
+    // 告知 stats 是否输出不同的颜色，默认为 false。
     colors: true,
-    // 告知 stats 是否展示 --env 信息.
-    env: true,
-    // 告知 stats 是否添加关于构建模块的信息。
-    modules: true,
+    // 告知 stats 是否展示 --env 信息，默认为false。
+    env: false,
+    // 告知 stats 是否添加关于构建模块的信息，默认为true。
+    modules: false,
     // 告知 stats 是否添加关于编译哈希值的信息。
     hash: false,
   },
