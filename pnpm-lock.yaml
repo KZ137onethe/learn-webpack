@@ -184,13 +184,13 @@ importers:
 
   第1章 核心功能/09-plugin: {}
 
-  第1章 核心功能/10-区分环境-01:
+  第1章 核心功能/10-区分环境-单文件: {}
+
+  第1章 核心功能/10-区分环境-多文件:
     dependencies:
       webpack-merge:
         specifier: ^6.0.1
         version: 6.0.1
-
-  第1章 核心功能/10-区分环境-02: {}
 
   第1章 核心功能/11-其他细节配置:
     dependencies:
@@ -242,6 +242,12 @@ importers:
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
+
+  第2章 常用扩展/06-区分环境的变量:
+    devDependencies:
+      dotenv-webpack:
+        specifier: ^8.1.0
+        version: 8.1.0(webpack@5.99.5(webpack-cli@6.0.1))
 
   第3章 css工程化/01-拆分css:
     devDependencies:
@@ -2703,6 +2709,19 @@ packages:
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
+
+  dotenv-defaults@2.0.2:
+    resolution: {integrity: sha512-iOIzovWfsUHU91L5i8bJce3NYK5JXeAwH50Jh6+ARUdLiiGlYWfGw6UkzsYqaXZH/hjE/eCd/PlfM/qqyK0AMg==}
+
+  dotenv-webpack@8.1.0:
+    resolution: {integrity: sha512-owK1JcsPkIobeqjVrk6h7jPED/W6ZpdFsMPR+5ursB7/SdgDyO+VzAU+szK8C8u3qUhtENyYnj8eyXMR5kkGag==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      webpack: ^4 || ^5
+
+  dotenv@8.6.0:
+    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
+    engines: {node: '>=10'}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -8206,6 +8225,17 @@ snapshots:
       no-case: 3.0.4
       tslib: 2.8.1
 
+  dotenv-defaults@2.0.2:
+    dependencies:
+      dotenv: 8.6.0
+
+  dotenv-webpack@8.1.0(webpack@5.99.5(webpack-cli@6.0.1)):
+    dependencies:
+      dotenv-defaults: 2.0.2
+      webpack: 5.99.5(webpack-cli@6.0.1)
+
+  dotenv@8.6.0: {}
+
   dunder-proto@1.0.1:
     dependencies:
       call-bind-apply-helpers: 1.0.2
@@ -10924,7 +10954,7 @@ snapshots:
       webpack-sources: 1.4.3
       worker-farm: 1.7.0
 
-  terser-webpack-plugin@5.3.14(webpack@5.99.5(webpack-cli@6.0.1)):
+  terser-webpack-plugin@5.3.14(webpack@5.99.5):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -11428,7 +11458,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.14(webpack@5.99.5(webpack-cli@6.0.1))
+      terser-webpack-plugin: 5.3.14(webpack@5.99.5)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:

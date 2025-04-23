@@ -1,0 +1,17 @@
+{
+  "name": "@learn-webpack/2-06",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx webpack",
+    "prod": "npx webpack --env mode=production",
+    "staging": "npx webpack --env mode=staging"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv-webpack": "^8.1.0"
+  }
+}
