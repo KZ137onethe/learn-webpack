@@ -14,6 +14,8 @@ node_modules
 # 第二章
 第2章 常用扩展/**/dist/**
 第3章 css工程化/**/dist/**
+# 第五章
+第5章 性能优化/01-优化loader的性能/cache
 
 # 忽略概念文件中
 concept/**/dist/**
