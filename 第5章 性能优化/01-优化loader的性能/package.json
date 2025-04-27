@@ -1,0 +1,21 @@
+{
+  "name": "@learn-webpack/5-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bundle:exclude": "npx webpack --env way=exclude",
+    "bundle:cache": "npx webpack --env way=cache",
+    "bundle:thread": "npx webpack --env way=thread"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "babel-loader": "catalog:babel7",
+    "thread-loader": "^4.0.4"
+  }
+}
