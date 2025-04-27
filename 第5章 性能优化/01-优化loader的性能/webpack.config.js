@@ -63,19 +63,42 @@ module.exports = (env) => {
       /**
        * 方式三：
        * 通过web worker来开启一个线程来分担loader的工作（注意：开启和关闭线程都需要时间开销）
+       * 参考：https://github.com/webpack-contrib/thread-loader
        */
       Object.assign(config, {
         module: {
           rules: [
             {
               test: /\.js$/i,
-              use: ["thread-loader", "babel-loader"],
+              use: [
+                {
+                  loader: "thread-loader",
+                  options: {
+                    // 生成的worker数量，默认为（cpu数量-1）
+                    workers: 3,
+                    workerParallelJobs: 50,
+                    poolParallelJobs: 50,
+                  },
+                },
+                "babel-loader",
+              ],
             },
           ],
         },
       });
       break;
     default:
+      // 默认使用bable-loader
+      Object.assign(config, {
+        module: {
+          rules: [
+            {
+              test: /\.js$/i,
+              use: ["babel-loader"],
+            },
+          ],
+        },
+      });
   }
 
   return {
