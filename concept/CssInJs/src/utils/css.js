@@ -9,3 +9,4 @@ export function mergeStyles(dom, ...styles) {
   const allStyles = Object.assign({}, ...styles);
   Object.assign(dom.style, allStyles);
 }
+
