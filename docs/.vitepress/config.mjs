@@ -34,28 +34,32 @@ export default defineConfig({
           text: "第二章 常用扩展",
           link: "/knowledge/第二章文档",
         },
+        {
+          text: "第三章 CSS工程化",
+          link: "/knowledge/第三章文档",
+        },
       ],
       "/demo/": [
         {
           text: "处理图片",
-          link: "/demo/处理图片"
+          link: "/demo/处理图片",
         },
         {
           text: "处理样式",
-          link: "/demo/处理样式"
+          link: "/demo/处理样式",
         },
         {
           text: "区域查询",
-          link: "/demo/区域查询"
+          link: "/demo/区域查询",
         },
         {
           text: "数字查找特效",
-          link: "/demo/数字查找特效"
+          link: "/demo/数字查找特效",
         },
         {
           text: "添加文件列表",
-          link: "/demo/添加文件列表"
-        }
+          link: "/demo/添加文件列表",
+        },
       ],
       "/concept/": [
         {
