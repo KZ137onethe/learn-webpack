@@ -1,5 +1,5 @@
 {
-  "name": "01-拆分css",
+  "name": "@learn-webpack/03_01",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "css-loader": "^7.1.2",
-    "style-loader": "^4.0.0"
-  }
+  "license": "ISC"
 }
