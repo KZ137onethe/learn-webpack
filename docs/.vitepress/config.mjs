@@ -11,8 +11,7 @@ export default defineConfig({
     // 导航菜单配置，参考：https://vitepress.dev/zh/reference/default-theme-nav
     nav: [
       { text: "知识点", link: "/knowledge/前言" },
-      { text: "演示", link: "/demo" },
-      { text: "工程化工具", link: "/concept" },
+      { text: "演示", link: "/demo/处理图片" },
     ],
     // 大纲容器, 参考：https://vitepress.dev/zh/reference/default-theme-config#outline
     outline: {
@@ -59,28 +58,6 @@ export default defineConfig({
         {
           text: "添加文件列表",
           link: "/demo/添加文件列表",
-        },
-      ],
-      "/concept/": [
-        {
-          text: "Css 命名规范：BEM",
-          link: "/concept/BEM",
-        },
-        {
-          text: "CssInJs",
-          link: "/concept/CssInJs",
-        },
-        {
-          text: "预处理器：Sass",
-          link: "/concept/Sass",
-        },
-        {
-          text: "Css终极解决方案：PostCss",
-          link: "/concept/PostCss",
-        },
-        {
-          text: "JavaScript兼容性解决方案：Babel",
-          link: "/concept/Babel",
         },
       ],
     },
