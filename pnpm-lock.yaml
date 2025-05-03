@@ -249,18 +249,17 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(webpack@5.99.5(webpack-cli@6.0.1))
 
-  第3章 css工程化/01-拆分css:
+  第3章 css工程化/01-模块化css引入js中: {}
+
+  第3章 css工程化/02-抽离css:
     devDependencies:
-      css-loader:
-        specifier: ^7.1.2
-        version: 7.1.2(webpack@5.99.5)
-      style-loader:
-        specifier: ^4.0.0
-        version: 4.0.0(webpack@5.99.5)
+      mini-css-extract-plugin:
+        specifier: ^2.9.2
+        version: 2.9.2(webpack@5.99.5(webpack-cli@6.0.1))
 
-  第3章 css工程化/02-css module: {}
+  第3章 css工程化/03-css module: {}
 
-  第3章 css工程化/03-在webpack中使用sass:
+  第3章 css工程化/04-在webpack中使用sass:
     devDependencies:
       sass:
         specifier: 'catalog:'
@@ -269,7 +268,7 @@ importers:
         specifier: ^16.0.5
         version: 16.0.5(sass@1.86.3)(webpack@5.99.5(webpack-cli@6.0.1))
 
-  第3章 css工程化/04-在webpack中使用postcss:
+  第3章 css工程化/05-在webpack中使用postcss:
     devDependencies:
       postcss-color-mod-function:
         specifier: 'catalog:'
@@ -283,12 +282,6 @@ importers:
       postcss-preset-env:
         specifier: 'catalog:'
         version: 10.1.5(postcss@8.5.3)
-
-  第3章 css工程化/05-抽离css:
-    devDependencies:
-      mini-css-extract-plugin:
-        specifier: ^2.9.2
-        version: 2.9.2(webpack@5.99.5(webpack-cli@6.0.1))
 
   第4章 JavaScript兼容性/01-在webpack使用babel:
     dependencies:
@@ -327,6 +320,8 @@ importers:
       thread-loader:
         specifier: ^4.0.4
         version: 4.0.4(webpack@5.99.5(webpack-cli@6.0.1))
+
+  第5章 性能优化/03-手动分包: {}
 
 packages:
 
@@ -10973,7 +10968,7 @@ snapshots:
       webpack-sources: 1.4.3
       worker-farm: 1.7.0
 
-  terser-webpack-plugin@5.3.14(webpack@5.99.5(webpack-cli@6.0.1)):
+  terser-webpack-plugin@5.3.14(webpack@5.99.5):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -11485,7 +11480,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.14(webpack@5.99.5(webpack-cli@6.0.1))
+      terser-webpack-plugin: 5.3.14(webpack@5.99.5)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:
