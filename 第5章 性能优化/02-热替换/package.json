@@ -1,0 +1,15 @@
+{
+  "name": "@learn-webpack/05-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx webpack serve"
+  },
+  "dependencies": {
+    "gsap": "catalog:"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

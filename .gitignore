@@ -17,6 +17,7 @@ node_modules
 # 第五章
 第5章 性能优化/**/dist
 第5章 性能优化/01-优化loader的性能/cache
+第5章 性能优化/03-手动分包/target
 
 # 忽略概念文件中
 concept/**/dist/**
