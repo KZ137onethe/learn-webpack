@@ -15,4 +15,4 @@ applyStyles(divEl, {
 appEl.appendChild(divEl);
 
 const tl = gsap.timeline();
-tl.to(".box-1", { rotate: 720, x: 600, duration: 6 });
+tl.to(".box-1", { rotate: 720, x: "50vw", xPercent: -50, duration: 6 });

@@ -13,4 +13,4 @@ applyStyles(divEl, {
 appEl.appendChild(divEl);
 
 const tl = gsap.timeline();
-tl.from(".title", { opacity: 0, y: -40, duration: 2 });
+tl.from(".title", { opacity: 0, yPercent: 200, duration: 1.8 });

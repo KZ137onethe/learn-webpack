@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
 
 const appEl = document.querySelector("#app");
 // 创建DOM
