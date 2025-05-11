@@ -1,6 +1,14 @@
+/*
+ * @Author: guanhai q2274799107@126.com
+ * @Date: 2025-05-05 22:13:56
+ * @LastEditors: guanhai q2274799107@126.com
+ * @LastEditTime: 2025-05-10 00:29:22
+ * @FilePath: \learn-webpack\第5章 性能优化\05-代码压缩\src\index.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import "./styles.css";
 
-import CloudImg from "./assets/imgs/cloud.png";
+import BallImg from "./assets/imgs/basketball.png";
 import { gsap } from "gsap";
 
 const appEl = document.querySelector("#app");
@@ -13,23 +21,24 @@ Object.assign(boxEl.style, {
   "border-radius": "8px",
 });
 
-const cloudEl = document.createElement("img");
-cloudEl.src = CloudImg;
-cloudEl.width = 40;
-cloudEl.height = 40;
-Object.assign(cloudEl.style, {
+const ballEl = document.createElement("img");
+ballEl.src = BallImg;
+ballEl.width = 40;
+ballEl.height = 40;
+Object.assign(ballEl.style, {
   "object-fit": "cover",
   position: "absolute",
   top: "30px",
-  left: 0,
+  left: "100px",
 });
 
 appEl.appendChild(boxEl);
-boxEl.appendChild(cloudEl);
+boxEl.appendChild(ballEl);
 
-gsap.to(cloudEl, {
-  x: 300,
-  xPercent: -100,
+gsap.to(ballEl, {
+  y: 270,
+  rotate: 500,
+  yPercent: -100,
   yoyo: true,
   duration: 2.5,
   repeat: -1,
