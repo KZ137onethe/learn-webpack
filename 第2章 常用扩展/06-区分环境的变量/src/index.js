@@ -1,9 +1,11 @@
 const env = {
-  name: process.env.WEBPACK_ENV_NAME,
-  serveApi: process.env.WEBPACK_SERVE_API,
-  dbHost: process.env.WEBPACK_DB_HOST,
-  dbUser: process.env.WEBPACK_DB_USER,
-  dbPass: process.env.WEBPACK_DB_PASS,
+  name: import.meta.env.WEBPACK_ENV_NAME,
+  serveApi: import.meta.env.WEBPACK_SERVE_API,
+  dbHost: import.meta.env.WEBPACK_DB_HOST,
+  dbUser: import.meta.env.WEBPACK_DB_USER,
+  dbPass: import.meta.env.WEBPACK_DB_PASS,
 };
+
+// "process.env"
 
 console.log("💬 ⋮ env => ", env);

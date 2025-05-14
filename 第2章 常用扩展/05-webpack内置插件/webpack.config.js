@@ -24,8 +24,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       utils: path.resolve(__dirname, "src/utils/index.js"),
       $: "jquery",
-      map: ["lodash-es", "map"],
-      "window.lodash": "lodash-es",
+      map: ["lodash-es", "map"], // import { map } from "lodash-es"
+      "window.lodash": "lodash-es", // 浏览器 lodash.cloneDeep()
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

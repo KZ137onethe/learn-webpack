@@ -21,9 +21,9 @@ module.exports = {
       patterns: [
         {
           // 从何处复制文件的全局或路径。
-          from: "public/",
+          from: "public/assets",
           // 输出路径，这个输出路径是相对于打包路径的
-          to: "",
+          to: "assets",
         },
       ],
       // 选项
