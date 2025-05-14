@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --color-primary: hotpink;
+  --color-secondary: white;
+  --color-tertiary: dodgerblue;
+  --padding: clamp(1rem, 2vw, 2rem);
+  --radius: 0.25rem;
+  --shadow: 0 1rem 2rem hsla(0 0% 0% / 0.2);
+
+  margin: 0;
+  font-family: monospace, monospace;
+}

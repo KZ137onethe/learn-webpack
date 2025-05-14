@@ -1,0 +1,114 @@
+@use "./global.scss";
+
+// ITEMS
+.items:not(:empty) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--padding);
+  padding: calc(var(--padding) * 2);
+  grid-template-columns: var(--columns, 1fr);
+}
+
+@media (min-width: 350px) {
+  .items {
+    --columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+.items > .item {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+
+  &.in-cart {
+    color: var(--color-primary);
+    border: 2px dashed currentColor;
+    z-index: 1;
+  }
+
+  &.active {
+    z-index: 2;
+  }
+}
+
+// BUTTONS
+[calss*="btn"] {
+  all: unset;
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  &:focus-visible {
+    --size: 3px;
+    outline: var(--size) solid var(--color-tertiary);
+    outline-offset: var(--size);
+  }
+}
+
+// 商品
+.btn-item {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-size: 2rem;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  border-radius: var(--radius);
+}
+
+// 购物图标
+.btn-cart {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background: var(--color-secondary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+// CART
+.cart {
+  display: grid;
+  place-items: center;
+  bottom: var(--padding);
+  right: var(--padding);
+  width: 100%;
+  min-width: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:not(.open) {
+    transform: translateY(calc(100% + var(--padding)));
+
+    .item-wrapper {
+      visibility: hidden;
+      transition-delay: 300ms;
+    }
+  }
+
+  .item-wrapper {
+    display: grid;
+    overflow: auto;
+    width: calc(100% - var(--padding) * 2);
+    max-width: 350px;
+    max-height: 75vh;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    pointer-events: initial;
+    transition: visibility 0s;
+  }
+}

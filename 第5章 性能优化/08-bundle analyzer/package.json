@@ -1,0 +1,21 @@
+{
+  "name": "@learn-webpack/5-08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx webpack serve",
+    "analyse": "npx webpack --env analyse"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "catalog:"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass-loader": "^16.0.5",
+    "webpack-bundle-analyzer": "^4.10.2"
+  }
+}
