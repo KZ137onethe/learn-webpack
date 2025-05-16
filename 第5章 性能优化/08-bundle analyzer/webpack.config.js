@@ -9,13 +9,14 @@ module.exports = (env) => {
   const isAnalyse = env?.analyse;
 
   return {
-    mode: "development",
+    mode: isAnalyse ? "production" : "development",
     context: path.resolve(__dirname, "./src/pages"),
     entry: {
       index: "./index/index.js",
     },
     output: {
-      filename: "[name]-[contenthash:5].js",
+      filename: "js/[name]-[contenthash:5].js",
+      chunkFilename: "js/async/[name]-[contenthash:5].js",
       clean: true,
     },
     module: {
@@ -28,11 +29,21 @@ module.exports = (env) => {
             },
             {
               loader: "css-loader",
+              options: {
+                url: true,
+              },
             },
             {
               loader: "sass-loader",
             },
           ],
+        },
+        {
+          test: /\.(png|jpe?g|gif|svg)$/i,
+          type: "asset/resource",
+          generator: {
+            filename: "imgs/[name]-[contenthash:5][ext]",
+          },
         },
       ],
     },
@@ -50,6 +61,11 @@ module.exports = (env) => {
             analyzerMode: "static",
             openAnalyzer: true,
             reportFilename: "report.html",
+            statsOptions: {
+              assets: true,
+              chunks: true,
+              modules: true,
+            },
           })
         : null,
     ],
@@ -60,6 +76,11 @@ module.exports = (env) => {
       },
       hot: true,
       host: "local-ip",
+    },
+    optimization: {
+      splitChunks: {
+        chunks: "all", // 处理所有类型的 chunks（包括异步）
+      },
     },
     stats: "minimal",
   };

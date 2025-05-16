@@ -35,7 +35,7 @@
 }
 
 // BUTTONS
-[calss*="btn"] {
+[class*="btn"] {
   all: unset;
 
   &:active {
@@ -81,7 +81,8 @@
 // CART
 .cart {
   display: grid;
-  place-items: center;
+  place-items: end;
+  position: fixed;
   bottom: var(--padding);
   right: var(--padding);
   width: 100%;
@@ -99,7 +100,43 @@
     }
   }
 
-  .item-wrapper {
+  .btn-cart-wrapper {
+    position: absolute;
+    bottom: calc(100% + var(--padding));
+    pointer-events: initial;
+    z-index: 1;
+
+    .btn-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .count {
+    --size: 1.75rem;
+    position: absolute;
+    top: -0.65rem;
+    right: -0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+    font-size: 0.9rem;
+    letter-spacing: -0.08em;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .items-wrapper {
     display: grid;
     overflow: auto;
     width: calc(100% - var(--padding) * 2);
@@ -110,5 +147,38 @@
     box-shadow: var(--shadow);
     pointer-events: initial;
     transition: visibility 0s;
+
+    .empty-text {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .items {
+      --columns: repeat(auto-fill, minmax(3rem, 1fr));
+      --padding: 0.5rem;
+
+      .btn-item {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .cart {
+    transition-duration: 0s;
+  }
+
+  .cart:not(.open) .items-wrapper {
+    transition-delay: 0s;
+  }
+}
+
+// 商品图片
+@for $i from 1 through 24 {
+  .goods-#{$i} {
+    background-image: url("../imgs/goods_#{$i}.jpg");
+    background-size: contain;
   }
 }

@@ -11,7 +11,7 @@ const createLiEL = (id) => {
 };
 const createBtnEl = (value, bindClickFn = (e) => {}) => {
   const btnEl = document.createElement("button");
-  btnEl.className = "btn-item";
+  btnEl.className = `btn-item goods-${value}`;
   btnEl.textContent = value;
   btnEl.dataset.productId = value;
   btnEl.addEventListener("click", bindClickFn);
@@ -24,7 +24,7 @@ for (let i = 1; i <= 24; i++) {
       ulEl.appendChild(el);
       return Promise.resolve(el);
     })
-    .then((el) => {
+    .then(async (el) => {
       const btnEl = createBtnEl(i);
       el.appendChild(btnEl);
     });
