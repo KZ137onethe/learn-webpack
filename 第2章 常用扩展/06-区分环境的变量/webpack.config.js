@@ -39,7 +39,6 @@ module.exports = (env) => {
         path: path.resolve(__dirname, `./env/.env.${enviroment}`),
         safe: true,
         systemvars: true,
-        // TODO: 把这个 prefix 这个配置使用写在 docs 中
         prefix: "import.meta.env.",
       }),
     ],
