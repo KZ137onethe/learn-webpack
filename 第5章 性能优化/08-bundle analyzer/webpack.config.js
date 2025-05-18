@@ -56,6 +56,9 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: "stylesheets/[name].css",
       }),
+      /** webpack-bundle-analyzer
+       * 参考：https://github.com/webpack-contrib/webpack-bundle-analyzer/blob/master/README.md
+       */
       isAnalyse
         ? new BundleAnalyzerPlugin({
             analyzerMode: "static",

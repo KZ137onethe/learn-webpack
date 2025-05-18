@@ -366,7 +366,7 @@ importers:
         version: 0.34.1
       terser-webpack-plugin:
         specifier: ^5.3.14
-        version: 5.3.14(webpack@5.99.5)
+        version: 5.3.14(webpack@5.99.5(webpack-cli@6.0.1))
 
   第5章 性能优化/06-tree shaking:
     dependencies:
@@ -405,6 +405,18 @@ importers:
       webpack-bundle-analyzer:
         specifier: ^4.10.2
         version: 4.10.2
+
+  第5章 性能优化/09-gzip压缩:
+    devDependencies:
+      compression-webpack-plugin:
+        specifier: ^11.1.0
+        version: 11.1.0(webpack@5.99.5(webpack-cli@6.0.1))
+      mini-css-extract-plugin:
+        specifier: ^2.9.2
+        version: 2.9.2(webpack@5.99.5(webpack-cli@6.0.1))
+      sass-loader:
+        specifier: ^16.0.5
+        version: 16.0.5(sass@1.86.3)(webpack@5.99.5(webpack-cli@6.0.1))
 
 packages:
 
@@ -2701,6 +2713,12 @@ packages:
   compressible@2.0.18:
     resolution: {integrity: sha512-AF3r7P5dWxL8MxyITRMlORQNaOA2IkAFaTr4k7BUumjPtRpGDTZpl0Pb1XCO6JeDCBdp126Cgs9sMxqSjgYyRg==}
     engines: {node: '>= 0.6'}
+
+  compression-webpack-plugin@11.1.0:
+    resolution: {integrity: sha512-zDOQYp10+upzLxW+VRSjEpRRwBXJdsb5lBMlRxx1g8hckIFBpe3DTI0en2w7h+beuq89576RVzfiXrkdPGrHhA==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      webpack: ^5.1.0
 
   compression@1.8.0:
     resolution: {integrity: sha512-k6WLKfunuqCYD3t6AsuPGvQWaKwuLLh2/xHNcX4qE+vIfDNXpSqnrhwA7O53R7WVQUnt8dVAIW+YHr7xTgOgGA==}
@@ -8779,6 +8797,12 @@ snapshots:
     dependencies:
       mime-db: 1.54.0
 
+  compression-webpack-plugin@11.1.0(webpack@5.99.5(webpack-cli@6.0.1)):
+    dependencies:
+      schema-utils: 4.3.0
+      serialize-javascript: 6.0.2
+      webpack: 5.99.5(webpack-cli@6.0.1)
+
   compression@1.8.0:
     dependencies:
       bytes: 3.1.2
@@ -12242,7 +12266,7 @@ snapshots:
       webpack-sources: 1.4.3
       worker-farm: 1.7.0
 
-  terser-webpack-plugin@5.3.14(webpack@5.99.5):
+  terser-webpack-plugin@5.3.14(webpack@5.99.5(webpack-cli@6.0.1)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -12774,7 +12798,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.14(webpack@5.99.5)
+      terser-webpack-plugin: 5.3.14(webpack@5.99.5(webpack-cli@6.0.1))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:
