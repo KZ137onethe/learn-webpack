@@ -1,0 +1,46 @@
+@use "reset";
+@use "sass:math";
+
+#app {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 20px;
+
+  .progress {
+    --progress: 7;
+    --progress-color: #8a1874;
+    --total: 15;
+    --step: calc((100% - 1em) / (var(--total) - 1));
+    display: inline-block;
+    width: 300px;
+    height: 1em;
+    border-radius: 0.5em;
+    background: {
+      image: radial-gradient(circle at 10px 50%, #fff 3px, transparent 3px),
+        linear-gradient(var(--progress-color));
+      color: #ccc;
+      position: 0 0;
+      repeat: repeat, no-repeat;
+      size: var(--step) 100%,
+        calc((var(--progress) - 1) * var(--step) + 1em) 100%;
+    }
+    transform: scale(2);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: calc((var(--progress) - 1) * var(--step));
+      box-sizing: border-box;
+      border-radius: 0.5em;
+      background-color: var(--progress-color);
+      width: 1em;
+      height: 1em;
+      border: 1px solid #fff;
+      transition: 0.4s;
+      transform: translateX(50%);
+    }
+  }
+}

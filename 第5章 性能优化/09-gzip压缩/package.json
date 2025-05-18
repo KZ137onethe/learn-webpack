@@ -1,0 +1,17 @@
+{
+  "name": "09-gzip压缩",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "compression-webpack-plugin": "^11.1.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass-loader": "^16.0.5"
+  }
+}
