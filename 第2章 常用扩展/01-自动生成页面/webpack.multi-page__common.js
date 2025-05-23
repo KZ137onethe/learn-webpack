@@ -14,6 +14,9 @@ module.exports = {
     clean: true,
   },
   context: path.resolve(__dirname, "./src/multi-page__common"),
+  resolve: {
+    roots: [path.resolve(__dirname, "./src/multi-page__common")],
+  },
   module: {
     rules: [
       {
@@ -22,6 +25,16 @@ module.exports = {
           {
             loader: "html-loader",
             options: {
+              // 压缩
+              minimize: true,
+              // html 资源标识
+              sources: {
+                list: [
+                  { tag: "link", attribute: "href", type: "src" },
+                  { tag: "script", attribute: "src", type: "src" },
+                ],
+              },
+              // 处理自定义标签
               preprocessor: (content, loaderContext) => {
                 const includeRegex =
                   /\{\{\s*include\(\s*['"](.*?)['"]\s*\)\s*\}\}/g;
@@ -36,6 +49,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
