@@ -8,7 +8,7 @@ module.exports = {
     home: "./home/index.js",
     about: "./about/index.js",
   },
-  context: path.resolve(__dirname, "./src/pages"),
+  context: path.resolve(__dirname, "./src/multi-page"),
   output: {
     filename: "js/[name].[contenthash:5].js",
     clean: true,

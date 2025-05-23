@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "esay": "npx webpack --config webpack.test.js",
-    "bundle": "npx webpack"
+    "single-page": "npx webpack --config webpack.single-page.js",
+    "multi-page": "npx webpack --config webpack.multi-page.js",
+    "multi-page__common": "npx webpack --config webpack.multi-page__common.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3"
   }
 }
