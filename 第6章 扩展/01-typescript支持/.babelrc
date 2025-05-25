@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": "3.41",
+        // modules: false 将 转换成ES模块规范
+        "modules": false
+      }
+    ]
+  ],
+  // 官网插件列表：https://babel.nodejs.cn/docs/plugins-list
+  "plugins": [
+    // 移除打印日志 "babel-plugin-" 可以移除
+    // ["babel-plugin-transform-remove-console", { "exclude": ["error", "warn"] }],
+    // 重用 babel 的注入帮助代码节省代码大小，参考：https://babel.nodejs.cn/docs/babel-plugin-transform-runtime
+    ["@babel/plugin-transform-runtime", { "corejs": 3, "version": "7.26.10" }]
+  ]
+}

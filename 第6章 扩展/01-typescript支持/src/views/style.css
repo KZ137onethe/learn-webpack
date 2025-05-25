@@ -1,0 +1,13 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  box-sizing: border-box;
+  color: #2c3e50;
+  margin: 10px 0;
+  padding: 0 10px;
+  background-color: antiquewhite;
+}

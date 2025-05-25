@@ -1,0 +1,91 @@
+{
+  "compilerOptions": {
+    // * 编译目标配置
+    // 编译语言的版本
+    "target": "ESNext",
+    // 生成代码的模板标准
+    "module": "ESNext",
+    // TS 需要引入的库，即声明文件，es5默认引用了dom、es5、scripthost,如需要使用es的高级版本特性，通常需要配置，如es8的数组新特性需要引入"ES2019.Array"
+    "lib": ["DOM", "ES2024", "ScriptHost", "ES2019.Array"],
+
+    // * 其他编译配置
+    // 控制 JSX 的编译模式, 如：preserve，则保留 JSX 语法不转换，生成 .jsx 或 .tsx 文件等等
+    "jsx": "preserve",
+    // 指定 JSX 的生成函数，如：h，则使用 h 作为创建函数
+    "jsxFactory": "React.createElement",
+    // 用于控制迭代行为兼容性的编译选项。它的作用是在将代码编译到较旧的 JavaScript 版本（如 ES5/ES3）时，更精确地模拟现代 JavaScript（ES6+）的迭代协议。
+    "downlevelIteration": true,
+    // 控制 TypeScript 如何确定文件是否为 脚本或模块。 "auto"（默认）、"legacy"（import 和 export 语句来确定文件是否为模块）、"force"（确保每个非声明文件都被视为模块）。
+    "moduleDetection": "force",
+
+    // * 严格类型检查
+    // 开启所有严格模式的类型检查
+    "strict": true,
+    // 不允许把null、undefined赋值给其他类型的变量
+    "strictNullChecks": true,
+    /**
+     * 当strictFunctionTypes启用时，TypeScript会对函数参数类型进行更严格的逆变检查。
+     * 当strictFunctionTypes禁用时，TypeScript采用双变（Bivariant）检查，即逆变和协变都被认为是可接受的。
+     */
+    "strictFunctionTypes": false,
+    // 类的实例属性必须初始化
+    "strictPropertyInitialization": true,
+    // 严格的bind/call/apply检查
+    "strictBindCallApply": true,
+    // 不允许隐式的any类型
+    "noImplicitAny": false,
+    // 不允许this有隐式的any类型
+    "noImplicitThis": true,
+    // 检查只声明、未使用的局部变量(只提示不报错)
+    "noUnusedLocals": false,
+    // 检查未使用的函数参数(只提示不报错)
+    "noUnusedParameters": false,
+    // 防止switch语句贯穿(即如果没有break语句后面不会执行)
+    "noFallthroughCasesInSwitch": true,
+    // 在代码中注入'use strict'
+    "alwaysStrict": true,
+    // 是否检测JavaScript语法
+    "checkJs": false,
+
+    // * 路径与模块解析
+    // 解析非相对模块的基地址，默认是当前目录
+    "baseUrl": "./",
+    // 路径映射，相对于baseUrl
+    "paths": {
+      // 如使用jquery时不想使用默认版本，需要手动指定版本，可进行如下配置
+      "@jquery": ["node_modules/jquery/dist/jquery.min.js"],
+      "@/*": ["./src/*"],
+      "namespace/*": ["./namespace"]
+    },
+    // 模块解析策略，ts默认用node的解析策略，即相对的方式导入
+    "moduleResolution": "node",
+    // 允许导入JSON
+    "resolveJsonModule": true,
+
+    // * 输入与输出控制
+    // 指定输入文件目录(用于输入)，用于控制输出目录结构
+    "rootDir": "./src",
+
+    // * 类型声明文件
+    // 声明文件目录，默认时node_modules/@types
+    "typeRoots": ["node_modules/@types", "types"],
+    // 从 typeRoots 中选择要包含的特定类型包，其他包将被忽略。若设为空数组 []，则 禁用自动加载
+    "types": [],
+
+    // * 实验性特性
+    // 装饰器的实验特性
+    "experimentalDecorators": true,
+    // 装饰器的声明触发某些类型的元数据的实验性支持
+    "emitDecoratorMetadata": true,
+    // 使用现代类字段定义
+    "useDefineForClassFields": true,
+
+    // * webpack 插件配置
+    // 允许ts-loader编译时生成 sourceMap
+    "sourceMap": false
+  },
+  // 指定一个匹配列表（属于自动指定该路径下的所有ts相关文件）
+  "include": ["src/**/*", "types/*"],
+  // 指定一个排除列表（include的反向操作）
+  "exclude": ["node_modules"]
+}
