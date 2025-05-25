@@ -14,7 +14,8 @@
     "@babel/preset-env": "catalog:babel7",
     "@babel/runtime": "^7.27.0",
     "@babel/runtime-corejs3": "^7.27.0",
-    "babel-loader": "catalog:babel7"
+    "babel-loader": "catalog:babel7",
+    "babel-plugin-transform-remove-console": "^6.9.4"
   },
   "dependencies": {
     "core-js": "catalog:babel7"
