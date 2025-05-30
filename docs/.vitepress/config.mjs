@@ -15,7 +15,7 @@ export default defineConfig({
     ],
     // 大纲容器, 参考：https://vitepress.dev/zh/reference/default-theme-config#outline
     outline: {
-      level: [2, 3],
+      level: [2, 3, 4, 5],
       label: "页面导航",
     },
     // 侧边栏菜单项的配置，参考：https://vitepress.dev/zh/reference/default-theme-sidebar

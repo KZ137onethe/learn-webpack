@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "mini-css-extract-plugin": "^2.9.2",
     "postcss-color-mod-function": "catalog:",
     "postcss-import": "catalog:",
     "postcss-loader": "^8.1.1",
