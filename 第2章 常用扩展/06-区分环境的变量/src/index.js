@@ -9,3 +9,9 @@ const env = {
 // "process.env"
 
 console.log("💬 ⋮ env => ", env);
+/**
+ * 系统变量：操作系统安装的驱动器盘符
+ * 如果 systemvars 为 true，那么编译后会把其值作为常量放在编译结果中
+ * 否则，编译后为 undefined.SystemDrive
+ */
+console.log("SystemDrive => ", import.meta.env.SystemDrive);
