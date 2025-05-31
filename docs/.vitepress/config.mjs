@@ -37,6 +37,10 @@ export default defineConfig({
           text: "第三章 CSS工程化",
           link: "/knowledge/第三章文档",
         },
+        {
+          text: "第四章 JavaScript兼容性",
+          link: "/knowledge/第四章文档",
+        },
       ],
       "/demo/": [
         {
