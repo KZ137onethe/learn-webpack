@@ -7,11 +7,14 @@
       // 配置选项在：https://babel.nodejs.cn/docs/babel-preset-env
       {
         "useBuiltIns": "usage",
-        "corejs": "3.41",
+        "corejs": {
+          "version": "3.41",
+          "shippedProposals": true
+        },
         // modules: false 将 转换成ES模块规范
         "modules": false,
-        // 切换是否使用 浏览器列表配置源，包括搜索任何 browserslist 文件或引用 package.json 中的 browserslist 键，且这些文件不会用 Babel 编译
-        "ignoreBrowserslistConfig": true
+        // 用于指示 Babel 是否忽略项目中的 Browserslist 配置文件，为true时使用target作为配置选项
+        "ignoreBrowserslistConfig": false
       }
     ]
   ],

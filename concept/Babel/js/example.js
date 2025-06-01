@@ -39,3 +39,9 @@ class Person {
 const person_1 = new Person("tom", 33);
 person_1.info = ["mary", 22];
 console.warn(person_1.info);
+
+const arr_1 = [1, 2, 3, 4, 5, 6];
+const arr_2 = arr_1.with(2, 10);
+const num_1 = arr_1.at(-2);
+
+console.log(1, 2, 3, 4, "5", Math.PI, Math.pow(2, 4));

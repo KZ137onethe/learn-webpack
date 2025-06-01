@@ -1,6 +1,4 @@
 # 书写规范：https://browsersl.ist/，可以将数组的字符串以逗号分隔的形式粘贴过去筛选
-last 10 version
-> 1%
+> 0.1% in CN
 not ie <= 8
-
-
+last 10 version
