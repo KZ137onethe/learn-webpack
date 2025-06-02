@@ -92,8 +92,6 @@ importers:
         specifier: ^5.2.0
         version: 5.2.1(webpack-cli@6.0.1)(webpack@5.99.9)
 
-  concept/BEM: {}
-
   concept/Babel:
     dependencies:
       core-js:
@@ -141,6 +139,8 @@ importers:
       sass:
         specifier: 'catalog:'
         version: 1.89.0
+
+  concept/命名规范: {}
 
   demo/区域查询:
     dependencies:
