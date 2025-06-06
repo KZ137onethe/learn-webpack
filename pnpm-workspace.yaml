@@ -3,6 +3,7 @@ packages:
   - demo/**
   - concept/**
   - docs
+  - utils
   - "!node_modules"
 
 catalog:

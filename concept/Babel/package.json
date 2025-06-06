@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "npx babel js -d dist -w"
   },
@@ -12,12 +13,16 @@
   "devDependencies": {
     "@babel/cli": "catalog:babel7",
     "@babel/core": "catalog:babel7",
+    "@babel/plugin-proposal-decorators": "^7.27.1",
+    "@babel/plugin-transform-json-modules": "^7.27.1",
     "@babel/plugin-transform-runtime": "^7.26.10",
     "@babel/preset-env": "catalog:babel7",
     "@babel/runtime": "^7.27.0",
     "babel-plugin-transform-remove-console": "^6.9.4"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.27.0",
+    "@learn-webpack/utils": "workspace:^",
     "core-js": "catalog:babel7"
   }
 }
