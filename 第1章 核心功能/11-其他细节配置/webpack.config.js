@@ -10,6 +10,8 @@ module.exports = {
   context: path.resolve(__dirname, "./src"),
   output: {
     filename: "[name]-[contenthash:5].js",
+    // 非入口chunk文件的命名规则，如：import("xxx.js") 动态导入模块
+    chunkFilename: "async/[name]-[contenthash:5].js",
     // 输出一个库，为你的入口做导出。参考：https://www.webpackjs.com/configuration/output/#outputlibrary
     library: {
       // 指定库的名称。参考：https://www.webpackjs.com/configuration/output/#outputlibraryname
