@@ -487,27 +487,6 @@ importers:
 
   concept/命名规范: {}
 
-  demo/区域查询:
-    dependencies:
-      jquery:
-        specifier: ^3.7.1
-        version: 3.7.1
-      query-string:
-        specifier: ^9.1.1
-        version: 9.2.0
-
-  demo/处理图片:
-    dependencies:
-      loader-utils:
-        specifier: ^3.3.1
-        version: 3.3.1
-
-  demo/处理样式: {}
-
-  demo/数字查找特效: {}
-
-  demo/添加文件列表: {}
-
   docs:
     devDependencies:
       vitepress:
@@ -517,6 +496,27 @@ importers:
   packages/resources: {}
 
   packages/utils: {}
+
+  playground/区域查询:
+    dependencies:
+      jquery:
+        specifier: ^3.7.1
+        version: 3.7.1
+      query-string:
+        specifier: ^9.1.1
+        version: 9.2.0
+
+  playground/处理图片:
+    dependencies:
+      loader-utils:
+        specifier: ^3.3.1
+        version: 3.3.1
+
+  playground/处理样式: {}
+
+  playground/数字查找特效: {}
+
+  playground/添加文件列表: {}
 
 packages:
 
