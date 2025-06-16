@@ -16,6 +16,7 @@
     "webpack": "catalog:webpack4",
     "webpack-cli": "catalog:webpack4",
     "html-webpack-plugin": "catalog:webpack4",
-    "clean-webpack-plugin": "catalog:webpack4"
+    "clean-webpack-plugin": "catalog:webpack4",
+    "@learn-webpack/resources": "workspace:^"
   }
 }

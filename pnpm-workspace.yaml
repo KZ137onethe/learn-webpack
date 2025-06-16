@@ -1,10 +1,10 @@
 packages:
   - chapters/**/*
-  - demo/*
+  - playground/*
   - concept/*
-  - docs
   - packages/*
   - "!node_modules"
+  - docs
 
 catalog:
   webpack: ^5.98.0

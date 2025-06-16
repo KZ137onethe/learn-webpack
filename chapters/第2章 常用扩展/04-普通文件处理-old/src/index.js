@@ -1,7 +1,9 @@
-const { default: housePng } = require("./assets/house.png");
-const { default: likePng } = require("./assets/like.jpg");
-const messageContent = require("./assets/message.txt");
-const commentSvg = require("./assets/comment.svg");
+const {
+  default: housePng,
+} = require("@learn-webpack/resources/imgs/house.png");
+const { default: likePng } = require("@learn-webpack/resources/imgs/like.jpg");
+const messageContent = require("@learn-webpack/resources/txt/message.txt");
+const commentSvg = require("@learn-webpack/resources/imgs/comment.svg");
 
 const appEl = document.querySelector("#app");
 Object.assign(appEl.style, {

@@ -1,8 +1,8 @@
-import housePng from "./assets/house.png";
-import likePng from "./assets/like.jpg";
-import messageContent from "./assets/message.txt";
-import commentSvg from "./assets/comment.svg";
-import collection from "./assets/collection.webp";
+import housePng from "@learn-webpack/resources/imgs/house.png";
+import likePng from "@learn-webpack/resources/imgs/like.jpg";
+import messageContent from "@learn-webpack/resources/txt/message.txt";
+import commentSvg from "@learn-webpack/resources/imgs/comment.svg";
+import collection from "@learn-webpack/resources/imgs/collection.webp";
 
 const appEl = document.querySelector("#app");
 Object.assign(appEl.style, {
