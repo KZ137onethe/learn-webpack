@@ -1,5 +1,5 @@
 packages:
-  - chapters/第[0-9]章 [^/]+/[0-9][0-9]-[^/]+
+  - chapters/**/*
   - demo/*
   - concept/*
   - docs

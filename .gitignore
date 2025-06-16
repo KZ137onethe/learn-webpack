@@ -6,27 +6,28 @@ node_modules
 **/package-lock.json
 
 # 打包测试时，忽略的文件
+chapters/**/dist/*
 # 第一章
-chaptpers/第1章 核心功能/**/target/**.js
-chaptpers/第1章 核心功能/**/dist/**.js
-!chaptpers/第1章 核心功能/03-编译结果分析/dist/my-main.js
-!chaptpers/第1章 核心功能/03-编译结果分析/dist/test-eval.js
+chapters/第1章 核心功能/**/target/**.js
+chapters/第1章 核心功能/**/dist/**.js
+!chapters/第1章 核心功能/03-编译结果分析/dist/my-main.js
+!chapters/第1章 核心功能/03-编译结果分析/dist/test-eval.js
 # 第二章
-chaptpers/第2章 常用扩展/**/dist/**
+chapters/第2章 常用扩展/**/dist/**
 # 第三章
-chaptpers/第3章 css工程化/**/dist/**
+chapters/第3章 css工程化/**/dist/**
 # 第四章
-chaptpers/第4章 JavaScript兼容性/**/dist/**
+chapters/第4章 JavaScript兼容性/**/dist/**
 # 第五章
-chaptpers/第5章 性能优化/**/dist/**
-chaptpers/第5章 性能优化/01-优化loader的性能/cache
-chaptpers/第5章 性能优化/03-手动分包/target
+chapters/第5章 性能优化/**/dist/**
+chapters/第5章 性能优化/01-优化loader的性能/cache
+chapters/第5章 性能优化/03-手动分包/target
 # 第六章
-chaptpers/第6章 扩展/**/dist/**
+chapters/第6章 扩展/**/dist/**
 
 # 忽略概念文件中
 concept/**/dist/**
-!concept/预编译器sass/dist/index.html
+!concept/Sass/dist/index.html
 
 # demo中不忽略和忽略的文件
 demo/**/dist/*.js
