@@ -1,0 +1,36 @@
+{
+  "name": "gsap",
+  "content": {
+    "../../node_modules/.pnpm/gsap@3.13.0/node_modules/gsap/index.js": {
+      "id": 515,
+      "buildMeta": { "exportsType": "namespace" },
+      "exports": [
+        "Back",
+        "Bounce",
+        "CSSPlugin",
+        "Circ",
+        "Cubic",
+        "Elastic",
+        "Expo",
+        "Linear",
+        "Power0",
+        "Power1",
+        "Power2",
+        "Power3",
+        "Power4",
+        "Quad",
+        "Quart",
+        "Quint",
+        "Sine",
+        "SteppedEase",
+        "Strong",
+        "TimelineLite",
+        "TimelineMax",
+        "TweenLite",
+        "TweenMax",
+        "default",
+        "gsap"
+      ]
+    }
+  }
+}

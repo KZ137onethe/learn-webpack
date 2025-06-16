@@ -1,9 +1,9 @@
 packages:
-  - 第[0-9]章 [^/]+/[0-9][0-9]-[^/]+
-  - demo/**
-  - concept/**
+  - chapters/第[0-9]章 [^/]+/[0-9][0-9]-[^/]+
+  - demo/*
+  - concept/*
   - docs
-  - utils
+  - packages/*
   - "!node_modules"
 
 catalog:
@@ -16,7 +16,7 @@ catalog:
   postcss-color-mod-function: ^4.1.1
   postcss-import: ^16.1.0
   postcss-preset-env: ^10.1.5
-  # util
+  # utils
   gsap: ^3.13.0
 
 catalogs:

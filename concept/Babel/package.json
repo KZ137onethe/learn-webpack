@@ -23,6 +23,7 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.27.0",
     "@learn-webpack/utils": "workspace:^",
+    "@learn-webpack/resources": "workspace:^",
     "core-js": "catalog:babel7"
   }
 }

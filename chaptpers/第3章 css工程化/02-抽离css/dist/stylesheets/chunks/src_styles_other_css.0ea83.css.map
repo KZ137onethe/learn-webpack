@@ -1,0 +1,1 @@
+{"version":3,"file":"stylesheets/chunks/src_styles_other_css.0ea83.css","mappings":";;;AAAA;EACE,sBAAsB;AACxB,C","sources":["webpack://@learn-webpack/3-05/./src/styles/other.css"],"sourcesContent":["* {\r\n  box-sizing: border-box;\r\n}"],"names":[],"sourceRoot":""}

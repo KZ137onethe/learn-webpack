@@ -1,0 +1,98 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../../node_modules/.pnpm/css-loader@7.1.2_webpack@5.99.9/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/postcss-loader@8.1.1_postcss@8.5.3_typescript@5.8.3_webpack@5.99.9_webpack-cli@6.0.1_/node_modules/postcss-loader/dist/cjs.js!./src/styles/index.pcss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  这里是 autoprefixer 这个插件起的作用
+  属性参考：https://developer.mozilla.org/zh-CN/docs/Web/CSS/::placeholder
+*/
+
+::-moz-placeholder {
+  color: red;
+}
+
+::placeholder {
+  color: red;
+}
+
+/*
+  这里是 autoprefixer 这个插件起的作用
+  定义变量
+*/
+
+:root {
+  --light-color: #ecf0f1;
+  --dark-color: #13393e;
+}
+
+html[data-theme='light'] {
+  color: #ecf0f1;
+}
+
+html[data-theme='dark'] {
+  color: #13393e;
+}
+
+/*
+  postcssPresetEnv 的 features 添加了这个polyfill
+  自定义选择器 参考：https://drafts.csswg.org/css-extensions/#custom-selectors 
+*/
+
+a:is(:focus,:hover) {
+  color: #f40;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: bold;
+}
+
+:is(h1, h2, h3, h4, h5, h6).active {
+  background-color: #eaeef1;
+}
+
+/*
+  postcssPresetEnv 的 features 添加了这个polyfill
+  支持嵌套
+*/
+
+.a {
+  background-color: #e5a84b;
+}
+
+.a .b {
+    background-color: #84a729;
+  }
+
+.a:hover {
+    color: #3d8e86;
+  }
+
+/*
+  postcss-color-mod-function 插件使用
+  ---------------------------------------
+  lightness(%)：调整亮度（正数变亮，负数变暗）
+  - whiteness(%)：调整颜色的“白度”，相当于 lightness(10%)
+  - blackness(%)：调整颜色的“黑度”，相当于 lightness(-10%)
+  saturation(%)：调整饱和度
+  hue(deg)：调整色相
+  alpha(%)：调整透明度
+  blend(color percentage)：混合其他颜色
+  - tint(<percentage>) 混合白色到颜色中，相当于 blend(white <percentage>)
+  - shade(<percentage>) 混合黑色到颜色中，相当于 blend(black <percentage>)
+  contrast(%)：调整对比度
+*/
+
+p {
+  /* stylelint-disable-next-line scss/no-global-function-names */
+  --text-color: hsl(205.14285714285714, 89.7435897436%, 50%);
+  --active-color: rgba(66, 34, 86, 0.7);
+  --hover-color: rgb(188, 12, 15);
+  /* stylelint-disable-next-line scss/no-global-function-names */
+  --disabled-color: hsla(182.05128205128204, 20%, 22.9411764706%, 0);
+}
+
+/*# sourceMappingURL=main.css.map*/

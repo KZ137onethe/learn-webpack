@@ -1,4 +1,4 @@
-import dataSet from "@learn-webpack/utils/static/json/中国宜居城市_数据集.json" with { type: "json" }
+import dataSet from "@learn-webpack/resources/json/中国宜居城市_数据集.json" with { type: "json" }
 
 import { AnalyticalUtils } from "./utils.js"
 
