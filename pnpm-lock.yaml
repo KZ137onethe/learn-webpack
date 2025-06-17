@@ -224,6 +224,15 @@ importers:
 
   chapters/第4章 JavaScript兼容性/01-在webpack使用babel:
     dependencies:
+      '@babel/runtime-corejs3':
+        specifier: ^7.27.0
+        version: 7.27.3
+      '@learn-webpack/resources':
+        specifier: workspace:^
+        version: link:../../../packages/resources
+      '@learn-webpack/utils':
+        specifier: workspace:^
+        version: link:../../../packages/utils
       core-js:
         specifier: catalog:babel7
         version: 3.42.0
@@ -231,6 +240,12 @@ importers:
       '@babel/core':
         specifier: catalog:babel7
         version: 7.27.3
+      '@babel/plugin-proposal-decorators':
+        specifier: ^7.27.1
+        version: 7.27.1(@babel/core@7.27.3)
+      '@babel/plugin-transform-json-modules':
+        specifier: ^7.27.1
+        version: 7.27.1(@babel/core@7.27.3)
       '@babel/plugin-transform-runtime':
         specifier: ^7.26.10
         version: 7.27.3(@babel/core@7.27.3)
@@ -240,9 +255,6 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.27.4
-      '@babel/runtime-corejs3':
-        specifier: ^7.27.0
-        version: 7.27.3
       babel-loader:
         specifier: catalog:babel7
         version: 10.0.0(@babel/core@7.27.3)(webpack@5.99.9(webpack-cli@6.0.1))
@@ -422,6 +434,10 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0(webpack@5.99.9(webpack-cli@6.0.1))
 
+  concept/ACSS: {}
+
+  concept/BEM+OOCSS+SMACSS: {}
+
   concept/Babel:
     dependencies:
       '@babel/runtime-corejs3':
@@ -484,8 +500,6 @@ importers:
       sass:
         specifier: 'catalog:'
         version: 1.89.0
-
-  concept/命名规范: {}
 
   docs:
     devDependencies:

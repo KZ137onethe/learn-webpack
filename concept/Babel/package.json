@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npx babel js -d dist -w"
+    "build": "webpack --mode development --watch",
+    "build:prod": "webpack --mode production"
   },
   "keywords": [],
   "author": "",

@@ -15,10 +15,15 @@
     "@babel/runtime": "^7.27.0",
     "@babel/runtime-corejs3": "^7.27.0",
     "babel-loader": "catalog:babel7",
-    "babel-plugin-transform-remove-console": "^6.9.4"
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "@babel/plugin-proposal-decorators": "^7.27.1",
+    "@babel/plugin-transform-json-modules": "^7.27.1"
   },
   "dependencies": {
-    "core-js": "catalog:babel7"
+    "@babel/runtime-corejs3": "^7.27.0",
+    "core-js": "catalog:babel7",
+    "@learn-webpack/utils": "workspace:^",
+    "@learn-webpack/resources": "workspace:^"
   },
   "license": "ISC"
 }
