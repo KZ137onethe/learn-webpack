@@ -1,11 +1,10 @@
-import dataSet from "@learn-webpack/resources/json/中国宜居城市_数据集.json" with { type: "json" }
+import dataSet from "@learn-webpack/resources/json/中国宜居城市_数据集.json" with { type: "json" };
 
-import { AnalyticalUtils } from "./utils.js"
+import { AnalyticalUtils } from "./utils.js";
 
-@log
 class AnalyticalData {
-  #data = ''
-  #records = []
+  #data = [];
+  #records = {};
 
   static formatData(data) {
     try {
@@ -52,52 +51,39 @@ class AnalyticalData {
 
   init(data) {
     this.#data = AnalyticalData.formatData(data);
-    this.#records = this.recordAttributeType()
+    this.#records = this.recordAttributeType();
+  }
+
+  log() {
+    console.log("💬 ⋮ private variable: #data => ", this.#data);
+    console.log("💬 ⋮ private variable: #records => ", this.#records);
   }
 
   // 记录属性的类型
   recordAttributeType() {
-    const recordMap = new Map()
-    for(let item of this.#data) {
-      for(let [key, val] of Object.entries(item)) {
-        if(!recordMap.has(key)) {
-          const typeOfVal = AnalyticalUtils.judgeType(val)
+    const recordMap = new Map();
+    for (let item of this.#data) {
+      for (let [key, val] of Object.entries(item)) {
+        if (!recordMap.has(key)) {
+          const typeOfVal = AnalyticalUtils.judgeType(val);
           const obj = {
-            [typeOfVal]: 1
-          }
-          recordMap.set(key, obj)
+            [typeOfVal]: 1,
+          };
+          recordMap.set(key, obj);
         } else {
-          const obj = recordMap.get(key)
-          const typeOfVal = AnalyticalUtils.judgeType(val)
-          if(Object.prototype.hasOwnProperty.call(obj, typeOfVal)) {
-            obj[typeOfVal] += 1
+          const obj = recordMap.get(key);
+          const typeOfVal = AnalyticalUtils.judgeType(val);
+          if (Object.prototype.hasOwnProperty.call(obj, typeOfVal)) {
+            obj[typeOfVal] += 1;
           } else {
-            obj[typeOfVal] = 1
+            obj[typeOfVal] = 1;
           }
         }
       }
     }
-    return Array.from(recordMap)
+    return Array.from(recordMap);
   }
 }
 
-function log(Class) {
-  return class extends Class {
-    constructor(...args) {
-      super(...args);
-      // 通过Proxy拦截私有变量访问
-      const handler = {
-        get(target, prop) {
-          if (prop === '#data' || prop === '#records') {
-            console.log(`[LOG] 访问私有变量 ${prop}:`, target[prop]);
-          }
-          return target[prop];
-        }
-      };
-
-      return new Proxy(this, handler);
-    }
-  };
-}
-
-const instance = new AnalyticalData(dataSet)
+const instance = await new AnalyticalData(dataSet);
+instance.log();

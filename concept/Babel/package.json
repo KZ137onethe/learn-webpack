@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "webpack --mode development --watch",
-    "build:prod": "webpack --mode production"
+    "bundle": "npx babel js -d dist -w"
   },
   "keywords": [],
   "author": "",
@@ -14,17 +13,17 @@
   "devDependencies": {
     "@babel/cli": "catalog:babel7",
     "@babel/core": "catalog:babel7",
-    "@babel/plugin-proposal-decorators": "^7.27.1",
-    "@babel/plugin-transform-json-modules": "^7.27.1",
-    "@babel/plugin-transform-runtime": "^7.26.10",
+    "@babel/plugin-transform-class-properties": "catalog:babel7",
+    "@babel/plugin-transform-json-modules": "catalog:babel7",
+    "@babel/plugin-transform-private-property-in-object": "catalog:babel7",
     "@babel/preset-env": "catalog:babel7",
-    "@babel/runtime": "^7.27.0",
-    "babel-plugin-transform-remove-console": "^6.9.4"
+    "@babel/runtime": "catalog:babel7",
+    "babel-plugin-transform-remove-console": "catalog:babel7"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.27.0",
-    "@learn-webpack/utils": "workspace:^",
+    "@babel/runtime-corejs3": "catalog:babel7",
     "@learn-webpack/resources": "workspace:^",
+    "@learn-webpack/utils": "workspace:^",
     "core-js": "catalog:babel7"
   }
 }

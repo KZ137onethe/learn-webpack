@@ -27,7 +27,14 @@ catalogs:
     clean-webpack-plugin: 4.0.0
   babel7:
     "@babel/cli": ^7.27.0
-    "@babel/preset-env": ^7.26.9
     "@babel/core": ^7.26.10
-    core-js: ^3.41.0
     babel-loader: ^10.0.0
+    core-js: ^3.41.0
+    "@babel/preset-env": ^7.26.9
+    "@babel/runtime": ^7.27.0
+    "@babel/runtime-corejs3": ^7.27.0
+    # babel 插件
+    "@babel/plugin-transform-class-properties": ^7.27.1
+    "@babel/plugin-transform-json-modules": ^7.27.1
+    "@babel/plugin-transform-private-property-in-object": ^7.27.1
+    babel-plugin-transform-remove-console: ^6.9.4

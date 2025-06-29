@@ -17,7 +17,7 @@ chapters/第2章 常用扩展/**/dist/**
 # 第三章
 chapters/第3章 css工程化/**/dist/**
 # 第四章
-chapters/第4章 JavaScript兼容性/**/dist/**
+!chapters/第4章 JavaScript兼容性/01-在webpack使用babel/dist/index.html
 # 第五章
 chapters/第5章 性能优化/**/dist/**
 chapters/第5章 性能优化/01-优化loader的性能/cache
