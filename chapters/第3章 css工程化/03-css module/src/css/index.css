@@ -18,3 +18,7 @@ html, body, :global(#app) {
   height: 100vh;
   overflow: hidden;
 }
+
+.m-red {
+  text-align: center;
+}
