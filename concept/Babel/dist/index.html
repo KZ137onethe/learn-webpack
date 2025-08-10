@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "core-js/": "../node_modules/core-js/",
+          "@learn-webpack/": "../node_modules/@learn-webpack/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        Babel 编译测试
+        <hr />
+        <span>请用Live Server打开！！！</span>
+        <hr>
+        <span>发现 require语法 浏览器无法识别~</span>
+      </div>
+    </div>
+    <script src="./analytical.js" type="module"></script>
+  </body>
+</html>

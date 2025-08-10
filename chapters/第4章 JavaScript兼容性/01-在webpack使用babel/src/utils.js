@@ -1,4 +1,4 @@
-import { type } from "@learn-webpack/utils/index.js";
+import { type } from "@learn-webpack/utils";
 
 class AnalyticalUtils {
   static patternRegExp = /\([^)]*\)/g;
