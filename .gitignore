@@ -29,6 +29,7 @@ chapters/第6章 扩展/**/dist/**
 concept/**/dist/**
 !concept/Sass/dist/index.html
 !concept/Babel/dist/index.html
+concept/AyntaxTransformer/regenerator/output.js
 
 # demo中不忽略和忽略的文件
 demo/**/dist/*.js
