@@ -40,3 +40,6 @@ demo/区域查询/dist/**
 # 忽略docs相关
 docs/.vitepress/cache
 docs/dist
+
+# 忽略playground部分
+playground/利用sass实现星空效果/src/index.css

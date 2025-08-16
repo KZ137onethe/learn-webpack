@@ -1,0 +1,77 @@
+@use "sass:math";
+@use "sass:string";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  background: #3b3a39;
+
+  > .title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 100;
+    letter-spacing: 10px;
+    background: linear-gradient(white, #3b3a39);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+@function createShadow($n) {
+  // 创建 多个shadow，其实就是字符串拼接
+  $shadow: "#{math.random(100)}vw #{math.random(100)}vh #fff";
+  @for $i from 2 through $n {
+    $shadow: "#{$shadow}, #{math.random(100)}vw #{math.random(100)}vh #fff";
+  }
+  @return string.unquote($shadow);
+}
+
+$star-count: 2000;
+$duration: 200s;
+@for $i from 1 through 4 {
+  $star-count: math.floor(calc($star-count / 2));
+  $duration: math.floor(calc($duration / 2));
+  .layer-#{$i} {
+    $size: #{$i}px;
+    position: fixed;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    background: #fff;
+    box-shadow: createShadow($star-count);
+    animation: moveUp $duration linear infinite;
+    @debug "star-count: #{$star-count}, size: #{$size}, duration: #{$duration}";
+    &::after {
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 100vh;
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      box-shadow: inherit;
+    }
+  }
+}
+
+// 向上移动的动画
+@keyframes moveUp {
+  100% {
+    transform: translateY(-100vh);
+  }
+}

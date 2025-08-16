@@ -1,0 +1,15 @@
+{
+  "name": "利用sass实现星空效果",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:scss": "npx sass --watch src/index.scss:src/index.css --no-source-map"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "catalog:"
+  }
+}
