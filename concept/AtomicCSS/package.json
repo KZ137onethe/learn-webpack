@@ -1,0 +1,20 @@
+{
+  "name": "AtomicCSS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:unocss-base": "npx unocss --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "unocss": "^66.4.2"
+  },
+  "devDependencies": {
+    "@unocss/cli": "^66.4.2",
+    "@unocss/preset-attributify": "^66.4.2"
+  }
+}
