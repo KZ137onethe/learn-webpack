@@ -1,13 +1,117 @@
 @use "sass:math";
 @use "sass:string";
+@use "sass:map";
+@use "sass:list";
+@use "sass:meta";
 
+// 断点对象
+$breakpoints: (
+  "phone": (
+    320px,
+    480px,
+  ),
+  "pad": (
+    481px,
+    768px,
+  ),
+  "notebook": (
+    769px,
+    1024px,
+  ),
+  "desktop": (
+    1025px,
+    1200px,
+  ),
+  "tv": 1201px,
+);
 
-// TODO: 加入媒体查询的mixins封装
+@mixin response-to($breakname) {
+  $bp: map.get($breakpoints, $breakname);
+  @if meta.type-of($bp) == "list" {
+    $min: list.nth($bp, 1);
+    $max: list.nth($bp, 2);
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $bp) {
+      @content;
+    }
+  }
+}
+
+@function createShadow($n) {
+  // 创建 多个shadow，其实就是字符串拼接
+  $shadow: "#{math.random(100)}vw #{math.random(100)}vh #fff";
+  @for $i from 2 through $n {
+    $shadow: "#{$shadow}, #{math.random(100)}vw #{math.random(100)}vh #fff";
+  }
+  @return string.unquote($shadow);
+}
+
+@mixin starMove {
+  @for $i from 1 through 4 {
+    $star-count: math.floor(calc($star-count / 2));
+    $duration: math.floor(calc($duration / 2));
+    .layer-#{$i} {
+      $size: #{$i}px;
+      position: fixed;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      left: 0;
+      top: 0;
+      background: #fff;
+      box-shadow: createShadow($star-count);
+      animation: moveUp $duration linear infinite;
+      @debug "star-count: #{$star-count}, size: #{$size}, duration: #{$duration}";
+      &::after {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 100vh;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        box-shadow: inherit;
+      }
+    }
+  }
+}
 
 html,
 body {
   margin: 0;
   padding: 0;
+}
+
+$star-count: 2000;
+$duration: 200s;
+
+@include response-to("phone") {
+  $star-count: 1000 !global;
+  $duration: 80s !global;
+  @include starMove();
+}
+@include response-to("pad") {
+  $star-count: 1500 !global;
+  $duration: 150s !global;
+  @include starMove();
+}
+@include response-to("notebook") {
+  $star-count: 2000 !global;
+  $duration: 150s !global;
+  @include starMove();
+}
+@include response-to("desktop") {
+  $star-count: 3000 !global;
+  $duration: 200s !global;
+  @include starMove();
+}
+@include response-to("tv") {
+  $star-count: 5000 !global;
+  $duration: 250s !global;
+  @include starMove();
 }
 
 #app {
@@ -30,45 +134,6 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-  }
-}
-
-@function createShadow($n) {
-  // 创建 多个shadow，其实就是字符串拼接
-  $shadow: "#{math.random(100)}vw #{math.random(100)}vh #fff";
-  @for $i from 2 through $n {
-    $shadow: "#{$shadow}, #{math.random(100)}vw #{math.random(100)}vh #fff";
-  }
-  @return string.unquote($shadow);
-}
-
-$star-count: 2000;
-$duration: 200s;
-@for $i from 1 through 4 {
-  $star-count: math.floor(calc($star-count / 2));
-  $duration: math.floor(calc($duration / 2));
-  .layer-#{$i} {
-    $size: #{$i}px;
-    position: fixed;
-    width: $size;
-    height: $size;
-    border-radius: 50%;
-    left: 0;
-    top: 0;
-    background: #fff;
-    box-shadow: createShadow($star-count);
-    animation: moveUp $duration linear infinite;
-    @debug "star-count: #{$star-count}, size: #{$size}, duration: #{$duration}";
-    &::after {
-      content: "";
-      position: fixed;
-      left: 0;
-      top: 100vh;
-      width: inherit;
-      height: inherit;
-      border-radius: inherit;
-      box-shadow: inherit;
-    }
   }
 }
 
