@@ -1,0 +1,17 @@
+{
+  "name": "@learn-webpack/2-07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx webpack serve",
+    "prod": "npx webpack --env production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.1",
+  "dependencies": {
+    "webpack-merge": "^6.0.1"
+  }
+}

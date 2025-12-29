@@ -102,7 +102,7 @@ importers:
         version: 16.20.0(typescript@5.8.3)
       stylelint-config-standard-scss:
         specifier: ^14.0.0
-        version: 14.0.0(postcss@8.5.4)(stylelint@16.20.0(typescript@5.8.3))
+        version: 14.0.0(postcss@8.5.6)(stylelint@16.20.0(typescript@5.8.3))
       webpack:
         specifier: 'catalog:'
         version: 5.99.9(webpack-cli@6.0.1)
@@ -205,6 +205,12 @@ importers:
       dotenv-webpack:
         specifier: ^8.1.0
         version: 8.1.0(webpack@5.99.9(webpack-cli@6.0.1))
+
+  chapters/第2章 常用扩展/07-配置分离:
+    dependencies:
+      webpack-merge:
+        specifier: ^6.0.1
+        version: 6.0.1
 
   chapters/第3章 css工程化/01-模块化css引入js中: {}
 
@@ -12303,9 +12309,9 @@ snapshots:
     dependencies:
       postcss: 8.5.4
 
-  postcss-scss@4.0.9(postcss@8.5.4):
+  postcss-scss@4.0.9(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.4
+      postcss: 8.5.6
 
   postcss-selector-not@8.0.1(postcss@8.5.6):
     dependencies:
@@ -13183,26 +13189,26 @@ snapshots:
       postcss: 8.5.4
       postcss-selector-parser: 7.1.0
 
-  stylelint-config-recommended-scss@14.1.0(postcss@8.5.4)(stylelint@16.20.0(typescript@5.8.3)):
+  stylelint-config-recommended-scss@14.1.0(postcss@8.5.6)(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:
-      postcss-scss: 4.0.9(postcss@8.5.4)
+      postcss-scss: 4.0.9(postcss@8.5.6)
       stylelint: 16.20.0(typescript@5.8.3)
       stylelint-config-recommended: 14.0.1(stylelint@16.20.0(typescript@5.8.3))
       stylelint-scss: 6.12.0(stylelint@16.20.0(typescript@5.8.3))
     optionalDependencies:
-      postcss: 8.5.4
+      postcss: 8.5.6
 
   stylelint-config-recommended@14.0.1(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:
       stylelint: 16.20.0(typescript@5.8.3)
 
-  stylelint-config-standard-scss@14.0.0(postcss@8.5.4)(stylelint@16.20.0(typescript@5.8.3)):
+  stylelint-config-standard-scss@14.0.0(postcss@8.5.6)(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:
       stylelint: 16.20.0(typescript@5.8.3)
-      stylelint-config-recommended-scss: 14.1.0(postcss@8.5.4)(stylelint@16.20.0(typescript@5.8.3))
+      stylelint-config-recommended-scss: 14.1.0(postcss@8.5.6)(stylelint@16.20.0(typescript@5.8.3))
       stylelint-config-standard: 36.0.1(stylelint@16.20.0(typescript@5.8.3))
     optionalDependencies:
-      postcss: 8.5.4
+      postcss: 8.5.6
 
   stylelint-config-standard@36.0.1(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:
