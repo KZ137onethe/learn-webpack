@@ -1,3 +1,5 @@
+import "./style.scss"
+
 const uploadEl = document.querySelector("input#upload-input")
 const uploadWrapper = document.querySelector("div.upload-wrapper")
 const uploadBtn = uploadWrapper.querySelector("button.upload-btn")

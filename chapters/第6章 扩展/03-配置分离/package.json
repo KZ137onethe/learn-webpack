@@ -13,5 +13,9 @@
   "packageManager": "pnpm@10.15.1",
   "dependencies": {
     "webpack-merge": "^6.0.1"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass-loader": "^16.0.5"
   }
 }
